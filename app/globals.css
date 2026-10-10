@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+:root {
+  --brand-green: #15803d;
+  --brand-green-dark: #166534;
+  --brand-black: #09090b;
+  --brand-charcoal: #18181b;
+  --brand-cream: #fafafa;
+  --brand-subtle: #71717a;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  background-color: #ffffff;
+  color: #09090b;
+  letter-spacing: -0.01em;
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
+
+/* Cinematic image zoom on hover */
+.img-zoom-wrapper {
+  overflow: hidden;
+}
+
+.img-zoom {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.img-zoom-wrapper:hover .img-zoom {
+  transform: scale(1.05);
+}
+
+/* Seamless glass navigation without borders */
+.editorial-nav {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Dark cinematic overlay */
+.scrim-dark {
+  background-color: rgba(9, 9, 11, 0.65);
+}
+
+.scrim-dark-deep {
+  background-color: rgba(9, 9, 11, 0.85);
+}
+
+.scrim-dark-subtle {
+  background-color: rgba(9, 9, 11, 0.4);
+}
