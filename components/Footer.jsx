@@ -74,7 +74,7 @@ export default function Footer() {
 
             <div className="inline-flex items-center gap-2 text-xs sm:text-sm text-zinc-300 font-bold pt-1">
               <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span>Registered with SCUML (Anti-Money Laundering Certified).</span>
+              <span>“Polegrid Solutions is registered with the Special Control Unit Against Money Laundering (SCUML).”</span>
             </div>
 
             <div className="flex items-center gap-3 pt-3">

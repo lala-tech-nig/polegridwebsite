@@ -89,7 +89,7 @@ const servicesList = [
       "Site Access & Stakeholder Meeting Coordination",
       "Regulatory & Community Liaison Guidance",
     ],
-    badge: "Managed by GASL • SCUML Certified",
+    badge: "Managed by GASL",
     image: "/hero5.jpg",
     ctaText: "CONTACT COORDINATION DESK",
     ctaLink: "/contact",

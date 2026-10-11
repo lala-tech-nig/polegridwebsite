@@ -936,11 +936,6 @@ export default function RegisterPropertyPage() {
                       I CONFIRM AND UNDERSTAND *
                     </span>
                   </label>
-
-                  <div className="pt-3 border-t border-zinc-100 flex items-center gap-2 text-xs sm:text-sm font-bold text-zinc-600">
-                    <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>“Polegrid Solutions is registered with the Special Control Unit Against Money Laundering (SCUML).”</span>
-                  </div>
                 </div>
               </div>
             )}

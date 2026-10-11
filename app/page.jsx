@@ -55,7 +55,7 @@ const whyRegisterPerks = [
   "100% Free Preliminary Geospatial Screening with no upfront payment.",
   "Zero disruption to normal land usage until a lease agreement is executed.",
   "Opportunity for long-term lease income (10–30 years) with institutional operators.",
-  "SCUML certified compliance managed by Geospatial Asset Systems Limited (GASL).",
+  "Professional management and structured screening by Geospatial Asset Systems Limited (GASL).",
 ];
 
 const propertyTypes = [
@@ -549,7 +549,7 @@ export default function Home() {
           <div className="pt-8 flex flex-wrap items-center justify-center gap-8 text-xs sm:text-sm text-zinc-500 font-bold">
             <span>No upfront payment required</span>
             <span>•</span>
-            <span>SCUML Verified</span>
+            <span>100% Free Registration</span>
             <span>•</span>
             <span>Managed by GASL</span>
           </div>

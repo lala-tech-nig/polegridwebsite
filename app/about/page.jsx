@@ -84,13 +84,6 @@ export default function AboutPage() {
             <p className="text-base sm:text-lg text-zinc-700 leading-relaxed font-normal">
               Our role is to bring relevant property and location information into view, review it against telecom deployment needs, and coordinate legitimate commercial engagements where suitable.
             </p>
-
-            <div className="p-6 rounded-3xl bg-zinc-50 flex items-center gap-4 text-sm sm:text-base font-bold text-zinc-800 shadow-sm">
-              <ShieldCheck className="w-8 h-8 text-emerald-600 shrink-0" />
-              <span>
-                Registered with the Special Control Unit Against Money Laundering (SCUML) under Nigerian regulatory compliance.
-              </span>
-            </div>
           </div>
 
           <div className="lg:col-span-6">

@@ -18,7 +18,7 @@ export default function AnnouncementTicker() {
         <div className="flex items-center gap-5 text-zinc-300 shrink-0 text-xs sm:text-sm font-bold">
           <span className="hidden md:inline-flex items-center gap-1.5 text-zinc-300">
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
-            SCUML Certified • Managed by GASL
+            Managed by GASL
           </span>
           <a
             href="tel:07018162166"
