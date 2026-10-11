@@ -4,27 +4,27 @@ import { motion } from "framer-motion";
 
 const team = [
   {
-    name: "Leke O.",
-    role: "Field Verification & Site Assessment Officer",
-    bio: "Responsible for inspecting and evaluating proposed land sites to confirm suitability for telecom tower installation. Ensures proper measurement, access route checks, environmental safety, and verification before presenting the land to telecom companies.",
-    img: "/leke.jpg",
-  },
-  {
-    name: "Mr Oge B.",
-    role: "Technical Liaison (Telecom & Tower Company Coordinator)",
-    bio: "Acts as the bridge between Polegrid Solutions and telecom/tower companies. Manages technical expectations, communicates installation requirements, and ensures all verified sites meet specifications needed for seamless tower deployment.",
+    name: "Oge B.",
+    role: "Infrastructure Technical Adviser",
+    bio: "Provides technical support and professional input relating to telecommunications and digital infrastructure matters, contributing to the organization's understanding and coordination of relevant technical requirements where required.",
     img: "/oge.png",
   },
   {
     name: "Saratu T.",
-    role: "Compliance & Partnership Manager",
-    bio: "Oversees partnership agreements, documentation, landowner verification, and regulatory compliance. Ensures all engagements are transparent, legally sound, and aligned with industry standards.",
+    role: "Compliance & Documentation Adviser",
+    bio: "Provides support on documentation, compliance-related matters and operational record standards, helping ensure relevant information and engagements are handled responsibly and consistently.",
     img: "/saratu.jpg",
+  },
+  {
+    name: "Leke A.",
+    role: "Corporate & Infrastructure Development Adviser",
+    bio: "Provides professional support and strategic input on corporate relationships, infrastructure-related opportunities and organizational development where required.",
+    img: "/leke.jpg",
   },
   {
     name: "Ebenezer A.",
     role: "Head of Operations",
-    bio: "Oversees day-to-day operations at Polegrid Solutions, coordinating communication between landowners, field teams, and telecom partners. Ensures smooth onboarding, proper documentation, and efficient handling of inquiries and project activities.",
+    bio: "Oversees the day-to-day operations of Polegrid Solutions, coordinating service delivery, communication and operational activities while maintaining the organization's service and operational standards.",
     img: "/eben.png",
   },
 ];

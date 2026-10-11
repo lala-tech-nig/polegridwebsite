@@ -13,27 +13,27 @@ import {
 
 const teamMembers = [
   {
-    name: "Ogechukwu Obianyo",
-    role: "Strategic Growth Lead",
-    bio: "Focuses on strategic direction, platform growth, market engagement and corporate initiatives.",
+    name: "Oge B.",
+    role: "Infrastructure Technical Adviser",
+    bio: "Provides technical support and professional input relating to telecommunications and digital infrastructure matters, contributing to the organization's understanding and coordination of relevant technical requirements where required.",
     image: "/oge.png",
   },
   {
-    name: "Saratu Silas",
-    role: "Legal & Corporate Documentation Lead",
-    bio: "Supports legal considerations, documentation review, corporate structuring and commercial agreements.",
+    name: "Saratu T.",
+    role: "Compliance & Documentation Adviser",
+    bio: "Provides support on documentation, compliance-related matters and operational record standards, helping ensure relevant information and engagements are handled responsibly and consistently.",
     image: "/saratu.jpg",
   },
   {
-    name: "Leke Olushola",
-    role: "Technical Lead",
-    bio: "Guides technical assessment processes, site evaluation workflows and platform data management.",
+    name: "Leke A.",
+    role: "Corporate & Infrastructure Development Adviser",
+    bio: "Provides professional support and strategic input on corporate relationships, infrastructure-related opportunities and organizational development where required.",
     image: "/leke.jpg",
   },
   {
-    name: "Ebenezer Omojola",
-    role: "Business & Partnerships Lead",
-    bio: "Leads stakeholder engagement, partnership development, organizational relationships and commercial outreach.",
+    name: "Ebenezer A.",
+    role: "Head of Operations",
+    bio: "Oversees the day-to-day operations of Polegrid Solutions, coordinating service delivery, communication and operational activities while maintaining the organization's service and operational standards.",
     image: "/eben.png",
   },
 ];
@@ -211,12 +211,12 @@ export default function AboutPage() {
       <section className="py-24 sm:py-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         <div className="max-w-3xl space-y-4">
           <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-emerald-800 block">
-            TEAM & ADVISORY
+            OUR TEAM
           </span>
           <h2 className="text-3xl sm:text-5xl font-black text-zinc-950 tracking-tight leading-tight">
-            THE PEOPLE BEHIND POLEGRID
+            The People Behind Polegrid
           </h2>
-          <p className="text-zinc-700 text-lg sm:text-xl font-medium">
+          <p className="text-zinc-700 text-lg sm:text-xl font-medium leading-relaxed">
             Polegrid is supported by a professional team with complementary experience across operations, infrastructure, documentation and corporate development.
           </p>
         </div>
@@ -225,24 +225,29 @@ export default function AboutPage() {
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="group space-y-4 bg-zinc-50 p-5 rounded-3xl shadow-sm hover:shadow-md transition"
+              className="group space-y-4 bg-zinc-50 p-6 rounded-3xl shadow-sm hover:shadow-md transition flex flex-col justify-between"
             >
-              <div className="img-zoom-wrapper rounded-2xl overflow-hidden shadow-md bg-zinc-200 aspect-[4/5] relative">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="img-zoom w-full h-full object-cover"
-                />
+              <div className="space-y-4">
+                <div className="img-zoom-wrapper rounded-2xl overflow-hidden shadow-md bg-zinc-200 aspect-[4/5] relative">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="img-zoom w-full h-full object-cover"
+                  />
+                </div>
+
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-black text-zinc-950">
+                    {member.name}
+                  </h3>
+                  <p className="text-sm sm:text-base font-bold text-emerald-700 mt-1">
+                    {member.role}
+                  </p>
+                </div>
               </div>
 
-              <div>
-                <h3 className="text-xl font-black text-zinc-950">
-                  {member.name}
-                </h3>
-                <p className="text-sm font-bold text-emerald-700 mt-0.5">
-                  {member.role}
-                </p>
-                <p className="text-zinc-600 text-sm mt-2 leading-relaxed font-medium">
+              <div className="pt-3 border-t border-zinc-200/80">
+                <p className="text-zinc-700 text-sm leading-relaxed font-medium">
                   {member.bio}
                 </p>
               </div>
@@ -250,18 +255,21 @@ export default function AboutPage() {
           ))}
         </div>
 
-        {/* Official Communication Notice */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-zinc-50 max-w-3xl mx-auto text-center space-y-3 text-sm sm:text-base text-zinc-700 font-medium shadow-sm">
-          <p className="font-black text-zinc-950 text-base sm:text-lg">
-            OFFICIAL COMMUNICATION NOTICE
+        {/* Official Communication */}
+        <div className="p-8 sm:p-12 rounded-3xl bg-zinc-50 max-w-3xl mx-auto text-center space-y-4 shadow-sm border-t-2 border-zinc-200">
+          <h3 className="font-black text-zinc-950 text-2xl sm:text-3xl">
+            Official Communication
+          </h3>
+          <p className="text-zinc-800 text-base sm:text-lg font-medium leading-relaxed">
+            For operational, property-owner and organizational enquiries, please use Polegrid's official communication channels.
           </p>
-          <p>
-            For operational, property-owner and organizational enquiries, please use Polegrid's official communication channels. Specific team members may participate in engagements where their expertise or involvement is appropriate.
+          <p className="text-zinc-600 text-sm sm:text-base font-medium">
+            Specific team members may participate in engagements where their expertise or involvement is appropriate.
           </p>
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-4 text-sm font-bold text-zinc-900">
-            <a href="tel:07018162166" className="hover:text-emerald-700 underline">Phone: 07018162166</a>
+          <div className="pt-4 flex flex-wrap items-center justify-center gap-6 text-sm sm:text-base font-bold text-zinc-900 border-t border-zinc-200/70 mt-4">
+            <a href="tel:07018162166" className="hover:text-emerald-700 underline font-black">Phone: 07018162166</a>
             <span>•</span>
-            <a href="mailto:polegrid01@gmail.com" className="hover:text-emerald-700 underline">Email: polegrid01@gmail.com</a>
+            <a href="mailto:polegrid01@gmail.com" className="hover:text-emerald-700 underline font-black">Email: polegrid01@gmail.com</a>
           </div>
         </div>
       </section>
