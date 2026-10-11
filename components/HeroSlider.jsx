@@ -33,69 +33,6 @@ const heroSlides = [
     caption: "National Video Site Intelligence • Nationwide Deployment",
   },
   {
-    id: 2,
-    tag: "TELECOM TOWERS & GREENFIELD SITES",
-    title: "SUITABLE LOCATIONS FOR GROUND-BASED TELECOM MASTS & TOWERS.",
-    subtitle:
-      "Open plots, perimeter land, and agricultural borders evaluated for telecom mast expansion across all 36 States and the FCT.",
-    primaryCta: {
-      text: "REGISTER YOUR PROPERTY — FREE",
-      href: "/register-property",
-    },
-    secondaryCta: {
-      text: "EXPLORE SERVICES",
-      href: "/services",
-    },
-    badgeText: "100% FREE PRELIMINARY GEOSPATIAL SCREENING",
-    disclaimer:
-      "Location intelligence helps connect physical property assets with long-term infrastructure planning.",
-    mediaType: "image",
-    mediaSrc: "/hero1.JPG",
-    caption: "Greenfield Telecom Mast Site • Lekki-Epe Axis",
-  },
-  {
-    id: 3,
-    tag: "ROOFTOPS & HIGH-ELEVATION STRUCTURES",
-    title: "COMMERCIAL ROOFTOPS POWERING URBAN 4G & 5G CONNECTIVITY.",
-    subtitle:
-      "Commercial buildings and high-elevation structures provide vital transmission height for urban micro-cells, small-cells and telecom relays.",
-    primaryCta: {
-      text: "REGISTER YOUR ROOFTOP — FREE",
-      href: "/register-property",
-    },
-    secondaryCta: {
-      text: "FOR ORGANIZATIONS",
-      href: "/organization-enquiry",
-    },
-    badgeText: "COMMERCIAL & RESIDENTIAL ELEVATED ROOFTOPS ELIGIBLE",
-    disclaimer:
-      "Structural suitability and load-bearing capacity are screened during technical assessment.",
-    mediaType: "image",
-    mediaSrc: "/hero2.jpg",
-    caption: "Commercial Rooftop Antenna Installation • Lagos Metro",
-  },
-  {
-    id: 4,
-    tag: "POWER & EQUIPMENT INFRASTRUCTURE",
-    title: "POWER INTEGRATION, ACCESS ROADS & SECURE SITE PERIMETERS.",
-    subtitle:
-      "Verified road access, power proximity, and secure perimeters are essential requirements for long-term telecom infrastructure development.",
-    primaryCta: {
-      text: "PUT MY PROPERTY ON THE RADAR",
-      href: "/register-property",
-    },
-    secondaryCta: {
-      text: "SEE HOW IT WORKS",
-      href: "#how-it-works",
-    },
-    badgeText: "HEAVY TRUCK ACCESS & UTILITIES SCREENING",
-    disclaimer:
-      "Grid availability and generator/solar footprint evaluated for uninterrupted connectivity.",
-    mediaType: "image",
-    mediaSrc: "/hero3.jpg",
-    caption: "Power & Equipment Shelter Facility • Abuja Central Hub",
-  },
-  {
     id: 5,
     tag: "STRATEGIC TIMING & EXPANSION",
     title: "WHAT IF YOUR PROPERTY IS IN THE RIGHT PLACE AT THE RIGHT TIME?",
