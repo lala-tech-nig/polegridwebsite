@@ -205,7 +205,7 @@ export default function HeroSlider() {
       </div>
 
       {/* Main Content: Centered, Bold, White & Readable */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14 relative z-10 w-full text-center flex flex-col items-center">
+      <div className="max-w-5xl text-white mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14 relative z-10 w-full text-center flex flex-col items-center">
         
         <AnimatePresence mode="wait">
           <motion.div
@@ -223,12 +223,18 @@ export default function HeroSlider() {
             </div>
 
             {/* Headline - Pure White, Maximum Boldness & High-Contrast Shadow */}
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08] max-w-4xl [text-shadow:_0_3px_20px_rgba(0,0,0,1),_0_6px_40px_rgba(0,0,0,0.95)]">
+            <h1 
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black !text-white tracking-tight leading-[1.08] max-w-4xl [text-shadow:_0_3px_20px_rgba(0,0,0,1),_0_6px_40px_rgba(0,0,0,0.95)]"
+              style={{ color: "#ffffff" }}
+            >
               {slide.title}
             </h1>
 
             {/* Subtitle - Pure White, High-Contrast Text */}
-            <p className="text-lg sm:text-xl md:text-2xl text-white font-bold leading-relaxed max-w-3xl [text-shadow:_0_2px_14px_rgba(0,0,0,1),_0_4px_24px_rgba(0,0,0,0.9)]">
+            <p 
+              className="text-lg sm:text-xl md:text-2xl !text-white font-bold leading-relaxed max-w-3xl [text-shadow:_0_2px_14px_rgba(0,0,0,1),_0_4px_24px_rgba(0,0,0,0.9)]"
+              style={{ color: "#ffffff" }}
+            >
               {slide.subtitle}
             </p>
 

@@ -195,13 +195,19 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/45" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 text-center space-y-5">
-          <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-emerald-400">
+          <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-emerald-400 [text-shadow:_0_2px_8px_rgba(0,0,0,0.8)]">
             NATIONAL FOOTPRINT
           </span>
-          <h3 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight drop-shadow-lg">
+          <h3 
+            className="text-3xl sm:text-5xl lg:text-6xl font-black !text-white tracking-tight [text-shadow:_0_3px_20px_rgba(0,0,0,1),_0_6px_40px_rgba(0,0,0,0.95)]"
+            style={{ color: "#ffffff" }}
+          >
             CONNECTING REAL LAND ASSETS WITH FUTURE DIGITAL CONNECTIVITY
           </h3>
-          <p className="text-zinc-100 text-base sm:text-xl max-w-3xl mx-auto font-medium drop-shadow">
+          <p 
+            className="!text-white text-base sm:text-xl max-w-3xl mx-auto font-semibold [text-shadow:_0_2px_14px_rgba(0,0,0,1)]"
+            style={{ color: "#ffffff" }}
+          >
             Every tower, small cell, and optical node begins with verified location data.
           </p>
         </div>
