@@ -10,35 +10,48 @@ export default function WhatsAppButton() {
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(defaultMessage)}`;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2.5">
+      {/* Optional helper dialog */}
       {showTooltip && (
-        <div className="bg-zinc-950 text-white text-xs p-4 rounded-2xl shadow-2xl max-w-xs animate-in fade-in slide-in-from-bottom-2 duration-200 relative mb-1">
+        <div className="bg-zinc-950 text-white text-xs p-4 rounded-2xl shadow-2xl max-w-xs animate-in fade-in slide-in-from-bottom-2 duration-200 relative mb-1 border border-zinc-800">
           <button
             onClick={() => setShowTooltip(false)}
             className="absolute top-2.5 right-2.5 text-zinc-400 hover:text-white"
             aria-label="Close"
           >
-            <X className="w-3.5 h-3.5" />
+            <X className="w-4 h-4" />
           </button>
-          <div className="flex items-center gap-2 mb-1 text-emerald-400 font-bold">
-            <span className="w-2 h-2 rounded-full bg-emerald-400" />
-            <span>Official WhatsApp Support</span>
+          <div className="flex items-center gap-2 mb-1.5 text-emerald-400 font-black text-sm">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span>WhatsApp Support</span>
           </div>
-          <p className="text-zinc-300 text-[11px] leading-relaxed font-light">
-            Questions regarding land submission or verification? Chat directly with Polegrid.
+          <p className="text-zinc-300 text-xs leading-relaxed font-medium">
+            Have questions about your land, location pin, or review progress? Chat directly with our verified team.
           </p>
         </div>
       )}
 
+      {/* Animated WhatsApp Support Button with Prominent Caption */}
       <a
         href={whatsappLink}
         target="_blank"
         rel="noopener noreferrer"
         onMouseEnter={() => setShowTooltip(true)}
-        className="group relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-zinc-950 hover:bg-zinc-900 text-white shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none"
+        className="group relative flex items-center gap-3 px-5 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-2xl shadow-emerald-950/40 hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none"
         aria-label="WhatsApp Support"
       >
-        <FaWhatsapp className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-400" />
+        {/* Animated Ping Ring */}
+        <span className="absolute -inset-1 rounded-full bg-emerald-400 opacity-40 animate-ping pointer-events-none" />
+        
+        {/* WhatsApp Icon */}
+        <div className="relative z-10 flex items-center justify-center">
+          <FaWhatsapp className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+        </div>
+
+        {/* Caption */}
+        <span className="relative z-10 text-sm sm:text-base font-black tracking-wide text-white whitespace-nowrap">
+          WhatsApp Support
+        </span>
       </a>
     </div>
   );

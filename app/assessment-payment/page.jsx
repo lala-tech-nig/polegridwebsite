@@ -66,18 +66,18 @@ export default function AssessmentPaymentPage() {
         <img
           src="/hero4.jpg"
           alt="Technical Assessment"
-          className="absolute inset-0 w-full h-full object-cover opacity-20"
+          className="absolute inset-0 w-full h-full object-cover opacity-25"
         />
-        <div className="absolute inset-0 bg-zinc-950/80" />
+        <div className="absolute inset-0 bg-black/75" />
 
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-3">
-          <span className="text-xs font-bold uppercase tracking-widest text-zinc-400 block">
-            Controlled Assessment Portal
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
+          <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-emerald-400 block [text-shadow:_0_2px_8px_rgba(0,0,0,0.8)]">
+            CONTROLLED ASSESSMENT PORTAL
           </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white [text-shadow:_0_3px_20px_rgba(0,0,0,1)]">
             Advanced Technical Site Assessment Fee
           </h1>
-          <p className="text-xs sm:text-sm text-zinc-300 max-w-xl mx-auto font-light leading-relaxed">
+          <p className="text-base sm:text-lg text-white max-w-xl mx-auto font-semibold leading-relaxed [text-shadow:_0_2px_12px_rgba(0,0,0,0.9)]">
             This payment portal is restricted to property owners whose properties have progressed through preliminary screening and have received a formal invitation to proceed.
           </p>
         </div>

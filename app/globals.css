@@ -14,13 +14,24 @@ body {
   overflow-x: hidden;
   background-color: #ffffff;
   color: #09090b;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+/* Headings font styling */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: inherit;
 }
 
 /* Custom minimal scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
@@ -28,12 +39,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d4d4d8;
+  background: #cbd5e1;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a1a1aa;
+  background: #94a3b8;
 }
 
 /* Cinematic image zoom on hover */
@@ -49,22 +60,9 @@ body {
   transform: scale(1.05);
 }
 
-/* Seamless glass navigation without borders */
+/* Dynamic glass navigation */
 .editorial-nav {
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-}
-
-/* Dark cinematic overlay */
-.scrim-dark {
-  background-color: rgba(9, 9, 11, 0.65);
-}
-
-.scrim-dark-deep {
-  background-color: rgba(9, 9, 11, 0.85);
-}
-
-.scrim-dark-subtle {
-  background-color: rgba(9, 9, 11, 0.4);
 }

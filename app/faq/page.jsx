@@ -175,54 +175,54 @@ export default function FAQPage() {
     <div className="bg-white text-zinc-900 selection:bg-zinc-900 selection:text-white">
       
       {/* Header Banner - Photographic overlay, No Gradients */}
-      <section className="relative bg-zinc-950 text-white py-28 overflow-hidden">
+      <section className="relative bg-zinc-950 text-white py-24 sm:py-28 overflow-hidden">
         <img
           src="/hero4.jpg"
           alt="FAQ Background"
-          className="absolute inset-0 w-full h-full object-cover opacity-20"
+          className="absolute inset-0 w-full h-full object-cover opacity-25"
         />
-        <div className="absolute inset-0 bg-zinc-950/80" />
+        <div className="absolute inset-0 bg-black/60" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-5">
-          <span className="text-xs font-bold uppercase tracking-widest text-zinc-400 block">
-            Information & Clarification
+          <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-emerald-400 block [text-shadow:_0_2px_8px_rgba(0,0,0,0.8)]">
+            INFORMATION & CLARIFICATION
           </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white">
-            Frequently Asked Questions
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white [text-shadow:_0_3px_20px_rgba(0,0,0,1)]">
+            FREQUENTLY ASKED QUESTIONS
           </h1>
-          <p className="max-w-xl mx-auto text-base sm:text-lg text-zinc-300 leading-relaxed font-light">
+          <p className="max-w-2xl mx-auto text-lg sm:text-2xl text-white leading-relaxed font-semibold [text-shadow:_0_2px_12px_rgba(0,0,0,0.9)]">
             Clear answers regarding property registration, technical assessments, earning potential, and organizational collaboration.
           </p>
 
-          {/* Borderless Search Box */}
-          <div className="max-w-md mx-auto pt-4">
+          {/* Search Box */}
+          <div className="max-w-lg mx-auto pt-4">
             <div className="relative">
-              <Search className="absolute left-5 top-4 w-4 h-4 text-zinc-400" />
+              <Search className="absolute left-5 top-4 w-5 h-5 text-zinc-400" />
               <input
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search topics, e.g. 'fees', 'vacant land'..."
-                className="w-full bg-zinc-900 text-white placeholder-zinc-500 rounded-full py-3.5 pl-12 pr-6 text-sm focus:outline-none focus:ring-1 focus:ring-zinc-600 shadow-xl font-light"
+                className="w-full bg-zinc-900 text-white placeholder-zinc-400 rounded-full py-4 pl-14 pr-6 text-base font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-xl"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Main FAQ List - Borderless Editorial Style (Clean horizontal rules only) */}
+      {/* Main FAQ List */}
       <section className="py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Category Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2">
+        <div className="flex flex-wrap items-center justify-center gap-2.5">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-full text-xs font-semibold transition ${
+              className={`px-5 py-2.5 rounded-full text-sm font-bold transition shadow-sm ${
                 selectedCategory === cat
-                  ? "bg-zinc-950 text-white"
-                  : "bg-zinc-100 text-zinc-600 hover:text-zinc-950"
+                  ? "bg-emerald-600 text-white"
+                  : "bg-zinc-100 text-zinc-700 hover:text-zinc-950 hover:bg-zinc-200"
               }`}
             >
               {cat}
@@ -230,12 +230,12 @@ export default function FAQPage() {
           ))}
         </div>
 
-        {/* Accordions without boxy borders */}
+        {/* Accordions */}
         <div className="divide-y divide-zinc-200">
           {filteredFaqs.length === 0 ? (
             <div className="py-16 text-center space-y-2">
-              <p className="text-zinc-800 font-semibold">No questions found matching "{search}"</p>
-              <button onClick={() => setSearch("")} className="text-xs text-zinc-500 underline">
+              <p className="text-zinc-900 text-lg font-bold">No questions found matching "{search}"</p>
+              <button onClick={() => setSearch("")} className="text-sm font-semibold text-emerald-700 underline">
                 Clear search
               </button>
             </div>
@@ -243,26 +243,26 @@ export default function FAQPage() {
             filteredFaqs.map((faq) => {
               const isOpen = openId === faq.id;
               return (
-                <div key={faq.id} className="py-6 transition-colors">
+                <div key={faq.id} className="py-7 transition-colors">
                   <button
                     onClick={() => setOpenId(isOpen ? null : faq.id)}
                     className="w-full text-left flex items-start justify-between gap-6 focus:outline-none group"
                   >
-                    <div className="space-y-1">
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-400 block">
+                    <div className="space-y-1.5">
+                      <span className="text-xs font-mono font-black uppercase tracking-wider text-emerald-800 block">
                         {faq.category}
                       </span>
-                      <h3 className="text-base sm:text-lg font-bold text-zinc-950 group-hover:text-emerald-700 transition-colors">
+                      <h3 className="text-lg sm:text-xl font-black text-zinc-950 group-hover:text-emerald-700 transition-colors leading-snug">
                         {faq.question}
                       </h3>
                     </div>
-                    <div className="p-2 rounded-full bg-zinc-100 text-zinc-600 shrink-0 mt-1">
-                      {isOpen ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
+                    <div className="p-2.5 rounded-full bg-zinc-100 text-zinc-700 shrink-0 mt-1 group-hover:bg-emerald-50 group-hover:text-emerald-700 transition">
+                      {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                     </div>
                   </button>
 
                   {isOpen && (
-                    <div className="pt-4 pr-12 text-sm text-zinc-600 leading-relaxed font-light animate-in fade-in duration-200">
+                    <div className="pt-4 pr-12 text-base sm:text-lg text-zinc-700 leading-relaxed font-medium animate-in fade-in duration-200">
                       <p>{faq.answer}</p>
                     </div>
                   )}
@@ -274,15 +274,15 @@ export default function FAQPage() {
 
         {/* Support Link */}
         <div className="pt-12 text-center space-y-3">
-          <p className="text-xs text-zinc-500 font-light">
+          <p className="text-sm sm:text-base text-zinc-600 font-medium">
             Have a question not addressed here?
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-zinc-950 hover:underline"
+            className="inline-flex items-center gap-2 text-sm sm:text-base font-black text-zinc-950 hover:text-emerald-700 underline"
           >
-            <span>Contact Support</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <span>Contact Support Desk</span>
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 

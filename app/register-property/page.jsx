@@ -1,52 +1,55 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { 
-  Radio, 
+  Building2, 
   MapPin, 
   ShieldCheck, 
-  PhoneCall, 
+  CheckCircle, 
+  Radio, 
+  AlertCircle, 
   ArrowRight, 
-  ArrowLeft, 
-  CheckCircle2, 
-  AlertCircle,
-  Camera,
-  Layers
+  ChevronRight, 
+  PhoneCall,
+  Info
 } from "lucide-react";
 import { ENDPOINTS } from "@/src/config/api";
 
+const nigerianStates = [
+  "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno",
+  "Cross River", "Delta", "Ebonyi", "Edo", "Ekiti", "Enugu", "FCT - Abuja", "Gombe",
+  "Imo", "Jigawa", "Kaduna", "Kano", "Katsina", "Kebbi", "Kogi", "Kwara", "Lagos",
+  "Nasarawa", "Niger", "Ogun", "Ondo", "Osun", "Oyo", "Plateau", "Rivers", "Sokoto",
+  "Taraba", "Yobe", "Zamfara"
+];
+
 const landmarkTypes = [
-  "Filling Station",
-  "Educational Institution (School/College)",
+  "Fuel Station / Gas Plant",
+  "Market / Commercial Centre",
   "Place of Worship (Church/Mosque)",
-  "Commercial Hub (Market/Mall)",
-  "Transport Node (Bus Stop/Junction)",
-  "Healthcare Facility",
-  "Government Facility",
-  "Other",
+  "School / University",
+  "Hospital / Medical Facility",
+  "Major Road Junction / Expressway",
+  "Police Station / Government Office",
+  "Hotel / Event Centre",
+  "Other Prominent Landmark"
 ];
 
 const installationLocations = [
-  "Greenfield (Vacant land)",
-  "Rooftop (Concrete decking/slab on your building only)",
-  "Co-location (Near an Existing Mast 2–3 houses away)",
-  "Fence or Wall (Small Cell)",
+  "Open Ground / Vacant Plot",
+  "Compound Area / Open Yard",
+  "Rooftop of Existing Building",
+  "Farm / Agricultural Land Edge",
+  "Perimeter Boundary / Fence Line",
+  "Industrial / Commercial Yard"
 ];
 
 const structureHeights = [
-  "Vacant Land",
-  "Single-Floor Structure (Bungalow)",
-  "1-Story Building / Duplex",
-  "2-Story Building",
-  "3-Story Building",
-  "4-Story Building or Higher",
-];
-
-const nigerianStates = [
-  "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno", 
-  "Cross River", "Delta", "Ebonyi", "Edo", "Ekiti", "Enugu", "FCT Abuja", "Gombe", 
-  "Imo", "Jigawa", "Kaduna", "Kano", "Katsina", "Kebbi", "Kogi", "Kwara", "Lagos", 
-  "Nasarawa", "Niger", "Ogun", "Ondo", "Osun", "Oyo", "Plateau", "Rivers", 
-  "Sokoto", "Taraba", "Yobe", "Zamfara"
+  "No Structure (Bare Land)",
+  "Bungalow (Single Storey)",
+  "2 Floors (1 Storey Building)",
+  "3–4 Floors (Multi-Storey)",
+  "5 Floors and Above (High-Rise)",
+  "Warehouse / Industrial Shed"
 ];
 
 export default function RegisterPropertyPage() {
@@ -112,13 +115,13 @@ export default function RegisterPropertyPage() {
     }
     if (currentStep === 3) {
       if (!formData.propertyType || !formData.preferredInstallationLocation || !formData.landDimensions || !formData.isOccupied || !formData.primaryStructureHeight) {
-        setErrorMsg("Please complete all property characteristic questions.");
+        setErrorMsg("Please provide all required property characteristics.");
         return false;
       }
     }
     if (currentStep === 4) {
-      if (!formData.existingMastNearby || !formData.roadAccessType || !formData.distanceToMainRoad || !formData.heavyEquipmentAccess || !formData.electricityAvailable || !formData.allYearAccessible) {
-        setErrorMsg("Please answer all accessibility & infrastructure questions.");
+      if (!formData.existingMastNearby || !formData.roadAccessType || !formData.distanceToMainRoad || !formData.areaClassification || !formData.heavyEquipmentAccess || !formData.electricityAvailable || !formData.allYearAccessible) {
+        setErrorMsg("Please answer all required accessibility & infrastructure questions (Questions 16–25).");
         return false;
       }
     }
@@ -143,7 +146,7 @@ export default function RegisterPropertyPage() {
     setErrorMsg("");
 
     if (!formData.willingToLeaseLongTerm || !formData.hasDisputes || !formData.willingToBeContacted) {
-      setErrorMsg("Please answer all required questions on terms.");
+      setErrorMsg("Please answer all required questions on terms and agreements.");
       return;
     }
 
@@ -186,85 +189,84 @@ export default function RegisterPropertyPage() {
   return (
     <div className="bg-white text-zinc-900 selection:bg-zinc-900 selection:text-white min-h-screen pb-24">
       
-      {/* Header Banner - Photographic Background, No Gradients, No Borders */}
-      <section className="relative bg-zinc-950 text-white py-24 overflow-hidden">
+      {/* Header Banner */}
+      <section className="relative bg-zinc-950 text-white py-20 md:py-24 overflow-hidden">
         <img
           src="/hero1.JPG"
           alt="Site Registration"
-          className="absolute inset-0 w-full h-full object-cover opacity-20"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
         />
-        <div className="absolute inset-0 bg-zinc-950/80" />
+        <div className="absolute inset-0 bg-black/60" />
 
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-zinc-400 block">
-            National Site Intelligence Network
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
+          <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-emerald-400 block [text-shadow:_0_2px_8px_rgba(0,0,0,0.8)]">
+            NATIONAL SITE INTELLIGENCE NETWORK
           </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
-            Register Your Property
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white [text-shadow:_0_3px_20px_rgba(0,0,0,1)]">
+            REGISTER YOUR PROPERTY
           </h1>
-          <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed max-w-xl mx-auto font-light">
-            Property registration is currently <strong className="text-white font-semibold">100% free</strong> and allows submitted locations to undergo preliminary geospatial review. Registration does not guarantee immediate deployment or lease approval.
+          <p className="text-base sm:text-xl text-white leading-relaxed max-w-2xl mx-auto font-semibold [text-shadow:_0_2px_12px_rgba(0,0,0,0.9)]">
+            Property registration is currently <strong className="text-emerald-300 font-black underline decoration-emerald-400">100% free</strong> and puts your location on Nigeria's digital infrastructure radar. Registration provides an opportunity for review and does not guarantee immediate deployment.
           </p>
         </div>
       </section>
 
-      {/* Main Wizard - Borderless, Clean Surface Tints */}
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20 space-y-8">
+      {/* Main Wizard Container */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20 space-y-8">
         
-        {/* Support Bar without box borders */}
-        <div className="bg-zinc-50 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-zinc-600">
-          <span className="font-medium text-zinc-800">
-            Need help completing the form? Call/SMS: <strong>07018162166</strong>
-          </span>
+        {/* Support Bar */}
+        <div className="bg-zinc-100 rounded-2xl p-4 sm:p-5 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-sm sm:text-base text-zinc-900 font-bold shadow-sm text-center">
+          <PhoneCall className="w-4 h-4 text-emerald-600 shrink-0" />
+          <span>Need help completing the form?</span>
           <a
             href="https://wa.me/2347018162166"
             target="_blank"
             rel="noreferrer"
-            className="text-emerald-700 font-bold hover:underline"
+            className="text-emerald-700 font-black hover:text-emerald-900 underline flex items-center gap-1 ml-1"
           >
-            WhatsApp Support Line →
+            Chat on WhatsApp →
           </a>
         </div>
 
-        {/* Wizard Form Container - Soft Tint, No Harsh Borders */}
-        <div className="bg-zinc-50 rounded-3xl p-8 sm:p-12 space-y-8">
+        {/* Wizard Form Card */}
+        <div className="bg-zinc-50 rounded-3xl p-6 sm:p-12 space-y-8 shadow-sm">
           
           {/* Progress Indicator */}
-          <div className="space-y-2">
-            <div className="flex items-center justify-between text-xs font-semibold text-zinc-500">
-              <span>Step {step} of 5</span>
-              <span>{step * 20}%</span>
+          <div className="space-y-2.5">
+            <div className="flex items-center justify-between text-xs sm:text-sm font-black uppercase tracking-wider text-zinc-700">
+              <span>STEP {step} OF 5</span>
+              <span>{step * 20}% COMPLETED</span>
             </div>
-            <div className="w-full bg-zinc-200 h-1.5 rounded-full overflow-hidden">
+            <div className="w-full bg-zinc-200 h-2.5 rounded-full overflow-hidden">
               <div 
-                className="bg-zinc-950 h-full rounded-full transition-all duration-300"
+                className="bg-emerald-600 h-full rounded-full transition-all duration-300"
                 style={{ width: `${step * 20}%` }}
               />
             </div>
           </div>
 
           {errorMsg && (
-            <div className="p-4 rounded-2xl bg-red-50 text-xs text-red-700 flex items-center gap-2">
-              <AlertCircle className="w-4 h-4 shrink-0 text-red-500" />
+            <div className="p-4 rounded-2xl bg-red-50 text-sm font-bold text-red-700 flex items-center gap-2">
+              <AlertCircle className="w-5 h-5 shrink-0 text-red-600" />
               <span>{errorMsg}</span>
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-8">
 
             {/* STEP 1 */}
             {step === 1 && (
               <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-bold text-zinc-950">
-                    Applicant Information & Authority
+                <div className="border-b border-zinc-200 pb-4">
+                  <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-zinc-950">
+                    APPLICANT INFORMATION & AUTHORITY
                   </h3>
-                  <p className="text-xs text-zinc-500 font-light mt-0.5">* Required questions</p>
+                  <p className="text-sm text-zinc-600 font-medium mt-1">Questions 1–3 and Question 20 (* Required fields)</p>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                    1. Full Name *
+                  <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                    1. FULL NAME OF PROPERTY OWNER / CONTACT PERSON *
                   </label>
                   <input
                     type="text"
@@ -273,13 +275,13 @@ export default function RegisterPropertyPage() {
                     value={formData.fullName}
                     onChange={handleChange}
                     placeholder="Enter your legal full name"
-                    className="w-full bg-white rounded-2xl p-4 text-sm text-zinc-950 focus:outline-none focus:ring-1 focus:ring-zinc-900 font-light"
+                    className="w-full bg-white rounded-2xl p-4 text-base font-semibold text-zinc-950 focus:outline-none focus:ring-2 focus:ring-zinc-900 shadow-sm"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                    2. Phone Number (WhatsApp) *
+                  <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                    2. PHONE NUMBER (PRIMARY WHATSAPP ENABLED) *
                   </label>
                   <input
                     type="tel"
@@ -288,13 +290,13 @@ export default function RegisterPropertyPage() {
                     value={formData.phoneNumber}
                     onChange={handleChange}
                     placeholder="e.g. 08012345678"
-                    className="w-full bg-white rounded-2xl p-4 text-sm text-zinc-950 focus:outline-none focus:ring-1 focus:ring-zinc-900 font-light"
+                    className="w-full bg-white rounded-2xl p-4 text-base font-semibold text-zinc-950 focus:outline-none focus:ring-2 focus:ring-zinc-900 shadow-sm"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                    3. Email Address (Optional)
+                  <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                    3. EMAIL ADDRESS (OPTIONAL)
                   </label>
                   <input
                     type="email"
@@ -302,28 +304,32 @@ export default function RegisterPropertyPage() {
                     value={formData.emailAddress}
                     onChange={handleChange}
                     placeholder="e.g. yourname@example.com"
-                    className="w-full bg-white rounded-2xl p-4 text-sm text-zinc-950 focus:outline-none focus:ring-1 focus:ring-zinc-900 font-light"
+                    className="w-full bg-white rounded-2xl p-4 text-base font-semibold text-zinc-950 focus:outline-none focus:ring-2 focus:ring-zinc-900 shadow-sm"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                    20. Are you authorized to lease this property? *
+                  <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                    20. ARE YOU AUTHORIZED TO LEASE THIS PROPERTY? *
                   </label>
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     {[
                       "Yes — I am the owner",
                       "Yes — I represent the owner/family",
                       "No",
                     ].map((opt) => (
-                      <label key={opt} className="flex items-center gap-3 p-3.5 rounded-2xl bg-white hover:bg-zinc-100 cursor-pointer text-sm font-light">
+                      <label key={opt} className={`flex items-center gap-3.5 p-4 rounded-2xl cursor-pointer text-base font-bold transition shadow-sm ${
+                        formData.authorizationToLease === opt
+                          ? "bg-zinc-950 text-white"
+                          : "bg-white text-zinc-800 hover:bg-zinc-100"
+                      }`}>
                         <input
                           type="radio"
                           name="authorizationToLease"
                           value={opt}
                           checked={formData.authorizationToLease === opt}
                           onChange={handleChange}
-                          className="w-4 h-4 text-zinc-900"
+                          className="w-4 h-4 text-emerald-500"
                         />
                         <span>{opt}</span>
                       </label>
@@ -336,16 +342,16 @@ export default function RegisterPropertyPage() {
             {/* STEP 2 */}
             {step === 2 && (
               <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-bold text-zinc-950">
-                    Property Location & Geospatial Details
+                <div className="border-b border-zinc-200 pb-4">
+                  <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-zinc-950">
+                    PROPERTY LOCATION & GEOSPATIAL DETAILS
                   </h3>
-                  <p className="text-xs text-zinc-500 font-light mt-0.5">Accurate details allow preliminary review</p>
+                  <p className="text-sm text-zinc-600 font-medium mt-1">Questions 4–10 (* Required fields)</p>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                    4. Full Property Address / Location *
+                  <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                    4. FULL PROPERTY ADDRESS / LOCATION *
                   </label>
                   <input
                     type="text"
@@ -353,14 +359,14 @@ export default function RegisterPropertyPage() {
                     required
                     value={formData.propertyAddress}
                     onChange={handleChange}
-                    placeholder="Enter street name, area and number"
-                    className="w-full bg-white rounded-2xl p-4 text-sm text-zinc-950 focus:outline-none focus:ring-1 focus:ring-zinc-900 font-light"
+                    placeholder="Enter street name, house/plot number, and community"
+                    className="w-full bg-white rounded-2xl p-4 text-base font-semibold text-zinc-950 focus:outline-none focus:ring-2 focus:ring-zinc-900 shadow-sm"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                    5. Nearest Bus stop / Landmark *
+                  <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                    5. NEAREST BUS STOP / LANDMARK *
                   </label>
                   <input
                     type="text"
@@ -369,14 +375,14 @@ export default function RegisterPropertyPage() {
                     value={formData.nearestBusStop}
                     onChange={handleChange}
                     placeholder="e.g. Alausa Bus Stop, Total Filling Station"
-                    className="w-full bg-white rounded-2xl p-4 text-sm text-zinc-950 focus:outline-none focus:ring-1 focus:ring-zinc-900 font-light"
+                    className="w-full bg-white rounded-2xl p-4 text-base font-semibold text-zinc-950 focus:outline-none focus:ring-2 focus:ring-zinc-900 shadow-sm"
                   />
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                      6. Local Government Area (LGA) *
+                    <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                      6. LOCAL GOVERNMENT AREA (LGA) *
                     </label>
                     <input
                       type="text"
@@ -385,19 +391,19 @@ export default function RegisterPropertyPage() {
                       value={formData.localGovernment}
                       onChange={handleChange}
                       placeholder="e.g. Ibeju-Lekki"
-                      className="w-full bg-white rounded-2xl p-4 text-sm text-zinc-950 focus:outline-none focus:ring-1 focus:ring-zinc-900 font-light"
+                      className="w-full bg-white rounded-2xl p-4 text-base font-semibold text-zinc-950 focus:outline-none focus:ring-2 focus:ring-zinc-900 shadow-sm"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                      7. State *
+                    <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                      7. STATE *
                     </label>
                     <select
                       name="state"
                       required
                       value={formData.state}
                       onChange={handleChange}
-                      className="w-full bg-white rounded-2xl p-4 text-sm text-zinc-950 focus:outline-none focus:ring-1 focus:ring-zinc-900 font-light"
+                      className="w-full bg-white rounded-2xl p-4 text-base font-semibold text-zinc-950 focus:outline-none focus:ring-2 focus:ring-zinc-900 shadow-sm"
                     >
                       <option value="">Select State</option>
                       {nigerianStates.map((st) => (
@@ -407,9 +413,9 @@ export default function RegisterPropertyPage() {
                   </div>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-white space-y-2">
-                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-900">
-                    8. Property Location Pin (Google Maps Link) (Optional)
+                <div className="p-5 rounded-2xl bg-white space-y-2 shadow-sm">
+                  <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950">
+                    8. PROPERTY LOCATION PIN (GOOGLE MAPS LINK) (OPTIONAL)
                   </label>
                   <input
                     type="url"
@@ -417,24 +423,24 @@ export default function RegisterPropertyPage() {
                     value={formData.locationPin}
                     onChange={handleChange}
                     placeholder="Paste Google Maps link here"
-                    className="w-full bg-zinc-50 rounded-xl p-3 text-sm focus:outline-none focus:ring-1 focus:ring-zinc-900 font-light"
+                    className="w-full bg-zinc-50 rounded-xl p-3.5 text-base font-semibold text-zinc-950 focus:outline-none focus:ring-2 focus:ring-zinc-900"
                   />
-                  <p className="text-[11px] text-zinc-500 font-light leading-relaxed">
-                    Open Google Maps → Press and hold location → Tap Share → Copy link → Paste here.
+                  <p className="text-xs text-zinc-600 font-medium leading-relaxed">
+                    How to copy link: Open Google Maps → Press and hold location pin on your land → Tap Share → Copy link → Paste here.
                   </p>
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                      9. Nearest Known Landmark Type *
+                    <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                      9. NEAREST KNOWN LANDMARK TYPE *
                     </label>
                     <select
                       name="landmarkType"
                       required
                       value={formData.landmarkType}
                       onChange={handleChange}
-                      className="w-full bg-white rounded-2xl p-4 text-sm text-zinc-950 focus:outline-none focus:ring-1 focus:ring-zinc-900 font-light"
+                      className="w-full bg-white rounded-2xl p-4 text-base font-semibold text-zinc-950 focus:outline-none focus:ring-2 focus:ring-zinc-900 shadow-sm"
                     >
                       <option value="">Select Landmark Type</option>
                       {landmarkTypes.map((t) => (
@@ -443,8 +449,8 @@ export default function RegisterPropertyPage() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                      10. Landmark Name *
+                    <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                      10. LANDMARK NAME *
                     </label>
                     <input
                       type="text"
@@ -452,8 +458,8 @@ export default function RegisterPropertyPage() {
                       required
                       value={formData.landmarkName}
                       onChange={handleChange}
-                      placeholder="e.g. Oando Station, St. Peters"
-                      className="w-full bg-white rounded-2xl p-4 text-sm text-zinc-950 focus:outline-none focus:ring-1 focus:ring-zinc-900 font-light"
+                      placeholder="e.g. Oando Station, St. Peters Catholic Church"
+                      className="w-full bg-white rounded-2xl p-4 text-base font-semibold text-zinc-950 focus:outline-none focus:ring-2 focus:ring-zinc-900 shadow-sm"
                     />
                   </div>
                 </div>
@@ -463,23 +469,23 @@ export default function RegisterPropertyPage() {
             {/* STEP 3 */}
             {step === 3 && (
               <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-bold text-zinc-950">
-                    Property Characteristics & Space
+                <div className="border-b border-zinc-200 pb-4">
+                  <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-zinc-950">
+                    PROPERTY CHARACTERISTICS & SPACE
                   </h3>
-                  <p className="text-xs text-zinc-500 font-light mt-0.5">Physical dimensions and structural nature</p>
+                  <p className="text-sm text-zinc-600 font-medium mt-1">Questions 11–15 (* Required fields)</p>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                    11. Type of Property *
+                  <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                    11. TYPE OF PROPERTY *
                   </label>
                   <select
                     name="propertyType"
                     required
                     value={formData.propertyType}
                     onChange={handleChange}
-                    className="w-full bg-white rounded-2xl p-4 text-sm text-zinc-950 focus:outline-none focus:ring-1 focus:ring-zinc-900 font-light"
+                    className="w-full bg-white rounded-2xl p-4 text-base font-semibold text-zinc-950 focus:outline-none focus:ring-2 focus:ring-zinc-900 shadow-sm"
                   >
                     <option value="">Select Property Type</option>
                     <option value="Vacant Land">Vacant Land</option>
@@ -494,19 +500,23 @@ export default function RegisterPropertyPage() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                    12. Preferred Installation Location or Space *
+                  <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                    12. PREFERRED INSTALLATION LOCATION OR SPACE *
                   </label>
-                  <div className="space-y-2">
+                  <div className="space-y-2.5">
                     {installationLocations.map((loc) => (
-                      <label key={loc} className="flex items-center gap-3 p-3.5 rounded-2xl bg-white hover:bg-zinc-100 cursor-pointer text-sm font-light">
+                      <label key={loc} className={`flex items-center gap-3.5 p-4 rounded-2xl cursor-pointer text-base font-bold transition shadow-sm ${
+                        formData.preferredInstallationLocation === loc
+                          ? "bg-zinc-950 text-white"
+                          : "bg-white text-zinc-800 hover:bg-zinc-100"
+                      }`}>
                         <input
                           type="radio"
                           name="preferredInstallationLocation"
                           value={loc}
                           checked={formData.preferredInstallationLocation === loc}
                           onChange={handleChange}
-                          className="w-4 h-4 text-zinc-900"
+                          className="w-4 h-4 text-emerald-500"
                         />
                         <span>{loc}</span>
                       </label>
@@ -515,8 +525,8 @@ export default function RegisterPropertyPage() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                    13. Land Dimensions / Size *
+                  <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                    13. LAND DIMENSIONS / SIZE *
                   </label>
                   <input
                     type="text"
@@ -525,18 +535,18 @@ export default function RegisterPropertyPage() {
                     value={formData.landDimensions}
                     onChange={handleChange}
                     placeholder="e.g. 60ft x 120ft (1 Plot), or Rooftop 15m x 15m"
-                    className="w-full bg-white rounded-2xl p-4 text-sm text-zinc-950 focus:outline-none focus:ring-1 focus:ring-zinc-900 font-light"
+                    className="w-full bg-white rounded-2xl p-4 text-base font-semibold text-zinc-950 focus:outline-none focus:ring-2 focus:ring-zinc-900 shadow-sm"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                    14. Is the property currently occupied or developed? *
+                  <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                    14. IS THE PROPERTY CURRENTLY OCCUPIED OR DEVELOPED? *
                   </label>
                   <div className="grid grid-cols-3 gap-3">
                     {["Yes", "No", "Partially"].map((opt) => (
-                      <label key={opt} className={`p-3 rounded-2xl text-center cursor-pointer text-sm transition ${
-                        formData.isOccupied === opt ? "bg-zinc-950 text-white font-bold" : "bg-white text-zinc-700 font-light"
+                      <label key={opt} className={`p-4 rounded-2xl text-center cursor-pointer text-base transition shadow-sm ${
+                        formData.isOccupied === opt ? "bg-zinc-950 text-white font-black" : "bg-white text-zinc-800 font-bold hover:bg-zinc-100"
                       }`}>
                         <input
                           type="radio"
@@ -553,15 +563,15 @@ export default function RegisterPropertyPage() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                    15. Primary Structure Height *
+                  <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                    15. PRIMARY STRUCTURE HEIGHT *
                   </label>
                   <select
                     name="primaryStructureHeight"
                     required
                     value={formData.primaryStructureHeight}
                     onChange={handleChange}
-                    className="w-full bg-white rounded-2xl p-4 text-sm text-zinc-950 focus:outline-none focus:ring-1 focus:ring-zinc-900 font-light"
+                    className="w-full bg-white rounded-2xl p-4 text-base font-semibold text-zinc-950 focus:outline-none focus:ring-2 focus:ring-zinc-900 shadow-sm"
                   >
                     <option value="">Select Height</option>
                     {structureHeights.map((h) => (
@@ -575,21 +585,21 @@ export default function RegisterPropertyPage() {
             {/* STEP 4 */}
             {step === 4 && (
               <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-bold text-zinc-950">
-                    Infrastructure & Road Access Readiness
+                <div className="border-b border-zinc-200 pb-4">
+                  <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-zinc-950">
+                    INFRASTRUCTURE, ROAD ACCESS & READINESS
                   </h3>
-                  <p className="text-xs text-zinc-500 font-light mt-0.5">Physical equipment & access factors</p>
+                  <p className="text-sm text-zinc-600 font-medium mt-1">Questions 16–19 and Questions 23–26 (* Required fields)</p>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                    16. Existing telecom mast within area? *
+                  <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                    16. EXISTING TELECOM MAST WITHIN AREA? *
                   </label>
                   <div className="grid grid-cols-3 gap-3">
                     {["Yes", "No", "Not sure"].map((opt) => (
-                      <label key={opt} className={`p-3 rounded-2xl text-center cursor-pointer text-sm transition ${
-                        formData.existingMastNearby === opt ? "bg-zinc-950 text-white font-bold" : "bg-white text-zinc-700 font-light"
+                      <label key={opt} className={`p-4 rounded-2xl text-center cursor-pointer text-base transition shadow-sm ${
+                        formData.existingMastNearby === opt ? "bg-zinc-950 text-white font-black" : "bg-white text-zinc-800 font-bold hover:bg-zinc-100"
                       }`}>
                         <input
                           type="radio"
@@ -606,15 +616,15 @@ export default function RegisterPropertyPage() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                    17. Road Access Type *
+                  <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                    17. ROAD ACCESS TYPE *
                   </label>
                   <select
                     name="roadAccessType"
                     required
                     value={formData.roadAccessType}
                     onChange={handleChange}
-                    className="w-full bg-white rounded-2xl p-4 text-sm text-zinc-950 focus:outline-none focus:ring-1 focus:ring-zinc-900 font-light"
+                    className="w-full bg-white rounded-2xl p-4 text-base font-semibold text-zinc-950 focus:outline-none focus:ring-2 focus:ring-zinc-900 shadow-sm"
                   >
                     <option value="">Select Road Type</option>
                     <option value="Tarred / Paved Road">Tarred / Paved Road</option>
@@ -627,15 +637,15 @@ export default function RegisterPropertyPage() {
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                      18. Distance to Main Road *
+                    <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                      18. DISTANCE TO MAIN ROAD *
                     </label>
                     <select
                       name="distanceToMainRoad"
                       required
                       value={formData.distanceToMainRoad}
                       onChange={handleChange}
-                      className="w-full bg-white rounded-2xl p-4 text-sm text-zinc-950 focus:outline-none focus:ring-1 focus:ring-zinc-900 font-light"
+                      className="w-full bg-white rounded-2xl p-4 text-base font-semibold text-zinc-950 focus:outline-none focus:ring-2 focus:ring-zinc-900 shadow-sm"
                     >
                       <option value="">Select Distance</option>
                       <option value="Direct frontage">Direct frontage</option>
@@ -645,14 +655,15 @@ export default function RegisterPropertyPage() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                      19. Area Classification *
+                    <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                      19. AREA CLASSIFICATION *
                     </label>
                     <select
                       name="areaClassification"
+                      required
                       value={formData.areaClassification}
                       onChange={handleChange}
-                      className="w-full bg-white rounded-2xl p-4 text-sm text-zinc-950 focus:outline-none focus:ring-1 focus:ring-zinc-900 font-light"
+                      className="w-full bg-white rounded-2xl p-4 text-base font-semibold text-zinc-950 focus:outline-none focus:ring-2 focus:ring-zinc-900 shadow-sm"
                     >
                       <option value="">Select Classification</option>
                       <option value="Urban / Commercial">Urban / Commercial</option>
@@ -662,71 +673,93 @@ export default function RegisterPropertyPage() {
                   </div>
                 </div>
 
-                <div className="grid sm:grid-cols-3 gap-3">
-                  <div>
-                    <label className="block text-xs font-semibold text-zinc-600 mb-1">
-                      23. Heavy trucks access? *
-                    </label>
-                    <select
-                      name="heavyEquipmentAccess"
-                      required
-                      value={formData.heavyEquipmentAccess}
-                      onChange={handleChange}
-                      className="w-full bg-white rounded-xl p-3 text-xs focus:outline-none font-light"
-                    >
-                      <option value="">Select</option>
-                      <option value="Yes">Yes</option>
-                      <option value="No">No</option>
-                      <option value="Not sure">Not sure</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-xs font-semibold text-zinc-600 mb-1">
-                      24. Power available? *
-                    </label>
-                    <select
-                      name="electricityAvailable"
-                      required
-                      value={formData.electricityAvailable}
-                      onChange={handleChange}
-                      className="w-full bg-white rounded-xl p-3 text-xs focus:outline-none font-light"
-                    >
-                      <option value="">Select</option>
-                      <option value="Yes">Yes</option>
-                      <option value="No">No</option>
-                      <option value="Not Sure">Not Sure</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-xs font-semibold text-zinc-600 mb-1">
-                      25. Accessible in rains? *
-                    </label>
-                    <select
-                      name="allYearAccessible"
-                      required
-                      value={formData.allYearAccessible}
-                      onChange={handleChange}
-                      className="w-full bg-white rounded-xl p-3 text-xs focus:outline-none font-light"
-                    >
-                      <option value="">Select</option>
-                      <option value="Yes">Yes</option>
-                      <option value="No">No</option>
-                      <option value="Not Sure">Not Sure</option>
-                    </select>
+                {/* Question 23 - Fully restored & Capitalized */}
+                <div>
+                  <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                    23. CAN HEAVY EQUIPMENT / TRUCK ACCESS YOUR PROPERTY? *
+                  </label>
+                  <div className="grid grid-cols-3 gap-3">
+                    {["Yes", "No", "Not sure"].map((opt) => (
+                      <label key={opt} className={`p-4 rounded-2xl text-center cursor-pointer text-base transition shadow-sm ${
+                        formData.heavyEquipmentAccess === opt ? "bg-zinc-950 text-white font-black" : "bg-white text-zinc-800 font-bold hover:bg-zinc-100"
+                      }`}>
+                        <input
+                          type="radio"
+                          name="heavyEquipmentAccess"
+                          value={opt}
+                          checked={formData.heavyEquipmentAccess === opt}
+                          onChange={handleChange}
+                          className="sr-only"
+                        />
+                        <span>{opt}</span>
+                      </label>
+                    ))}
                   </div>
                 </div>
 
+                {/* Question 24 - Fully restored & Capitalized */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                    26. Flooding, erosion, or environmental issues? (Optional)
+                  <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                    24. IS ELECTRICITY OR POWER INFRASTRUCTURE AVAILABLE WITHIN THE PROPERTY AREA? *
                   </label>
+                  <div className="grid grid-cols-3 gap-3">
+                    {["Yes", "No", "Not Sure"].map((opt) => (
+                      <label key={opt} className={`p-4 rounded-2xl text-center cursor-pointer text-base transition shadow-sm ${
+                        formData.electricityAvailable === opt ? "bg-zinc-950 text-white font-black" : "bg-white text-zinc-800 font-bold hover:bg-zinc-100"
+                      }`}>
+                        <input
+                          type="radio"
+                          name="electricityAvailable"
+                          value={opt}
+                          checked={formData.electricityAvailable === opt}
+                          onChange={handleChange}
+                          className="sr-only"
+                        />
+                        <span>{opt}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Question 25 - Fully restored & Capitalized */}
+                <div>
+                  <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                    25. IS THE PROPERTY GENERALLY ACCESSIBLE THROUGHOUT THE YEAR, INCLUDING DURING RAINY SEASONS? *
+                  </label>
+                  <div className="grid grid-cols-3 gap-3">
+                    {["Yes", "No", "Not Sure"].map((opt) => (
+                      <label key={opt} className={`p-4 rounded-2xl text-center cursor-pointer text-base transition shadow-sm ${
+                        formData.allYearAccessible === opt ? "bg-zinc-950 text-white font-black" : "bg-white text-zinc-800 font-bold hover:bg-zinc-100"
+                      }`}>
+                        <input
+                          type="radio"
+                          name="allYearAccessible"
+                          value={opt}
+                          checked={formData.allYearAccessible === opt}
+                          onChange={handleChange}
+                          className="sr-only"
+                        />
+                        <span>{opt}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Question 26 - Fully restored & Capitalized */}
+                <div>
+                  <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-1">
+                    26. ARE THERE ANY KNOWN FLOODING, ACCESS, OR ENVIRONMENTAL ISSUES AFFECTING THE PROPERTY AREA? (OPTIONAL)
+                  </label>
+                  <p className="text-xs sm:text-sm text-zinc-600 font-medium mb-2.5">
+                    Instruction: (Examples: seasonal flooding, severe erosion, restricted access roads, security concerns, or road conditions that may affect access during rainy periods. If none, you may leave this blank.)
+                  </p>
                   <textarea
                     name="floodingOrEnvironmentalIssues"
-                    rows={2}
+                    rows={3}
                     value={formData.floodingOrEnvironmentalIssues}
                     onChange={handleChange}
-                    placeholder="Leave blank if none."
-                    className="w-full bg-white rounded-2xl p-3.5 text-xs text-zinc-950 focus:outline-none font-light resize-none"
+                    placeholder="Provide details if applicable, or leave blank if none."
+                    className="w-full bg-white rounded-2xl p-4 text-base font-semibold text-zinc-950 focus:outline-none focus:ring-2 focus:ring-zinc-900 shadow-sm resize-none"
                   />
                 </div>
               </div>
@@ -735,21 +768,22 @@ export default function RegisterPropertyPage() {
             {/* STEP 5 */}
             {step === 5 && (
               <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-bold text-zinc-950">
-                    Terms & Submission Declaration
+                <div className="border-b border-zinc-200 pb-4">
+                  <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-zinc-950">
+                    TERMS, DISPUTES & SUBMISSION DECLARATION
                   </h3>
-                  <p className="text-xs text-zinc-500 font-light mt-0.5">Final confirmation before registration</p>
+                  <p className="text-sm text-zinc-600 font-medium mt-1">Questions 21, 22, 27, 28, Property Photo Guidance & Declaration</p>
                 </div>
 
+                {/* Question 21 - Fully Capitalized */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                    21. Willing to lease for telecom infrastructure (10–30 years)? *
+                  <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                    21. ARE YOU WILLING TO LEASE FOR TELECOM INFRASTRUCTURE (10–30 YEARS)? *
                   </label>
                   <div className="grid grid-cols-2 gap-3">
                     {["Yes", "No"].map((opt) => (
-                      <label key={opt} className={`p-3 rounded-2xl text-center cursor-pointer text-sm transition ${
-                        formData.willingToLeaseLongTerm === opt ? "bg-zinc-950 text-white font-bold" : "bg-white text-zinc-700 font-light"
+                      <label key={opt} className={`p-4 rounded-2xl text-center cursor-pointer text-base transition shadow-sm ${
+                        formData.willingToLeaseLongTerm === opt ? "bg-zinc-950 text-white font-black" : "bg-white text-zinc-800 font-bold hover:bg-zinc-100"
                       }`}>
                         <input
                           type="radio"
@@ -765,14 +799,15 @@ export default function RegisterPropertyPage() {
                   </div>
                 </div>
 
+                {/* Question 22 - Fully Capitalized with Dispute Details */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                    22. Any known ownership, family, or legal disputes? *
+                  <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                    22. ARE THERE ANY KNOWN OWNERSHIP, FAMILY, COMMUNITY, OR LEGAL DISPUTES RELATING TO THE PROPERTY? *
                   </label>
-                  <div className="grid grid-cols-2 gap-3 mb-2">
+                  <div className="grid grid-cols-2 gap-3 mb-3">
                     {["No", "Yes"].map((opt) => (
-                      <label key={opt} className={`p-3 rounded-2xl text-center cursor-pointer text-sm transition ${
-                        formData.hasDisputes === opt ? "bg-zinc-950 text-white font-bold" : "bg-white text-zinc-700 font-light"
+                      <label key={opt} className={`p-4 rounded-2xl text-center cursor-pointer text-base transition shadow-sm ${
+                        formData.hasDisputes === opt ? "bg-zinc-950 text-white font-black" : "bg-white text-zinc-800 font-bold hover:bg-zinc-100"
                       }`}>
                         <input
                           type="radio"
@@ -786,16 +821,33 @@ export default function RegisterPropertyPage() {
                       </label>
                     ))}
                   </div>
+
+                  {formData.hasDisputes === "Yes" && (
+                    <div className="pt-2 animate-in fade-in duration-200">
+                      <label className="block text-xs sm:text-sm font-bold text-zinc-800 mb-1.5">
+                        If Yes, please briefly provide details regarding the nature of the dispute or ongoing resolution status (Optional):
+                      </label>
+                      <textarea
+                        name="disputeDetails"
+                        rows={2}
+                        value={formData.disputeDetails}
+                        onChange={handleChange}
+                        placeholder="Briefly describe dispute or resolution status..."
+                        className="w-full bg-white rounded-2xl p-4 text-base font-semibold text-zinc-950 focus:outline-none focus:ring-2 focus:ring-zinc-900 shadow-sm resize-none"
+                      />
+                    </div>
+                  )}
                 </div>
 
+                {/* Question 27 - Fully restored & Capitalized */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                    27. Willing to be contacted for future verification if shortlisted? *
+                  <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-2">
+                    27. ARE YOU WILLING TO BE CONTACTED FOR FUTURE INFRASTRUCTURE-RELATED VERIFICATION OR ASSESSMENT IF YOUR PROPERTY IS SHORTLISTED? *
                   </label>
                   <div className="grid grid-cols-2 gap-3">
                     {["Yes", "No"].map((opt) => (
-                      <label key={opt} className={`p-3 rounded-2xl text-center cursor-pointer text-sm transition ${
-                        formData.willingToBeContacted === opt ? "bg-zinc-950 text-white font-bold" : "bg-white text-zinc-700 font-light"
+                      <label key={opt} className={`p-4 rounded-2xl text-center cursor-pointer text-base transition shadow-sm ${
+                        formData.willingToBeContacted === opt ? "bg-zinc-950 text-white font-black" : "bg-white text-zinc-800 font-bold hover:bg-zinc-100"
                       }`}>
                         <input
                           type="radio"
@@ -811,63 +863,97 @@ export default function RegisterPropertyPage() {
                   </div>
                 </div>
 
+                {/* Question 28 - Fully restored & Capitalized */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                    28. Referral / Consultant Code (Optional)
+                  <label className="block text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950 mb-1">
+                    28. REFERRAL / AGENT NAME / CONSULTANT CODE (OPTIONAL)
                   </label>
+                  <p className="text-xs sm:text-sm text-zinc-600 font-medium mb-2.5">
+                    "Internal Tracking Code: Please do not edit this field to ensure your application is assigned to the correct consultant."
+                  </p>
                   <input
                     type="text"
                     name="referralCode"
                     value={formData.referralCode}
                     onChange={handleChange}
-                    placeholder="Enter agent code if applicable"
-                    className="w-full bg-white rounded-2xl p-4 text-sm text-zinc-950 focus:outline-none font-light"
+                    placeholder="Enter agent / consultant code if applicable"
+                    className="w-full bg-white rounded-2xl p-4 text-base font-semibold text-zinc-950 focus:outline-none focus:ring-2 focus:ring-zinc-900 shadow-sm"
                   />
                 </div>
 
-                {/* Photo guidance notice */}
-                <div className="p-5 rounded-2xl bg-white space-y-2 text-xs text-zinc-600 font-light">
-                  <span className="font-bold text-zinc-900 block">Photo Guidance via WhatsApp:</span>
-                  <p>
-                    Applicants may be requested to send recent property photographs (front view, installation space, road access) via the WhatsApp review line: <strong>07018162166</strong>.
+                {/* PROPERTY PHOTO SUPPORT GUIDANCE - Fully Capitalized Heading */}
+                <div className="p-6 rounded-3xl bg-white space-y-3 shadow-sm">
+                  <h4 className="text-base sm:text-lg font-black uppercase tracking-tight text-zinc-950">
+                    PROPERTY PHOTO SUPPORT
+                  </h4>
+                  <p className="text-sm text-zinc-700 leading-relaxed font-medium">
+                    During review stages, applicants may be requested to provide recent property photographs through the official Polegrid WhatsApp review line to support geospatial verification and infrastructure suitability assessment.
                   </p>
+                  <div className="text-sm font-semibold text-zinc-800 space-y-1 pl-1">
+                    <p className="font-bold text-zinc-950">Recommended photographs may include:</p>
+                    <p>• Front view of the property</p>
+                    <p>• Available installation space</p>
+                    <p>• Road access to the property</p>
+                    <p>• Rooftop area (where applicable)</p>
+                    <p>• Surrounding environment</p>
+                  </div>
+                  <div className="pt-2 text-sm font-black text-emerald-800">
+                    Official Polegrid WhatsApp Review Line: <a href="https://wa.me/2347018162166" target="_blank" rel="noreferrer" className="underline font-black">07018162166</a>
+                  </div>
                 </div>
 
-                {/* Declaration without box borders */}
-                <div className="p-6 rounded-2xl bg-white space-y-3">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900">
-                    Submission Declaration *
+                {/* SUBMISSION DECLARATION - Fully Capitalized Heading & Content */}
+                <div className="p-6 sm:p-8 rounded-3xl bg-white space-y-4 shadow-sm">
+                  <h4 className="text-base sm:text-lg font-black uppercase tracking-tight text-zinc-950">
+                    SUBMISSION DECLARATION *
                   </h4>
-                  <p className="text-xs text-zinc-600 font-light leading-relaxed">
-                    By submitting this form, you confirm that the information provided is accurate and may be reviewed as part of Polegrid's preliminary infrastructure assessment process. Submission does not constitute site approval or commercial commitment.
-                  </p>
+                  
+                  <div className="space-y-3 text-sm text-zinc-700 leading-relaxed font-medium">
+                    <p>
+                      By submitting this form, you confirm that the information provided is accurate to the best of your knowledge and may be reviewed as part of Polegrid's preliminary infrastructure assessment process.
+                    </p>
+                    <p>
+                      Polegrid Solutions reserves the right to independently verify submitted property information during internal review processes.
+                    </p>
+                    <p>
+                      Submission of this form does not constitute site approval, lease execution, infrastructure deployment, commercial commitment, or selection by any telecom operator, tower company, or infrastructure developer.
+                    </p>
+                    <p>
+                      Only properties that satisfy Polegrid's preliminary screening criteria or demonstrate potential suitability for telecommunications or digital infrastructure will be shortlisted and may be contacted for Advanced Technical Site Assessment or subsequent stages of the Polegrid evaluation process.
+                    </p>
+                  </div>
 
-                  <label className="flex items-center gap-3 pt-2 cursor-pointer">
+                  <label className="flex items-start sm:items-center gap-3.5 pt-4 cursor-pointer p-4 rounded-2xl bg-zinc-100 hover:bg-zinc-200 transition">
                     <input
                       type="checkbox"
                       name="declarationConfirmed"
                       required
                       checked={formData.declarationConfirmed}
                       onChange={handleChange}
-                      className="w-4 h-4 text-zinc-950 rounded focus:ring-zinc-900"
+                      className="w-5 h-5 text-emerald-600 rounded focus:ring-zinc-900 mt-0.5 sm:mt-0"
                     />
-                    <span className="text-xs font-bold text-zinc-950">
-                      I confirm and understand *
+                    <span className="text-sm sm:text-base font-black uppercase tracking-wider text-zinc-950">
+                      I CONFIRM AND UNDERSTAND *
                     </span>
                   </label>
+
+                  <div className="pt-3 border-t border-zinc-100 flex items-center gap-2 text-xs sm:text-sm font-bold text-zinc-600">
+                    <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>“Polegrid Solutions is registered with the Special Control Unit Against Money Laundering (SCUML).”</span>
+                  </div>
                 </div>
               </div>
             )}
 
-            {/* Wizard Navigation */}
+            {/* Wizard Navigation Buttons */}
             <div className="flex items-center justify-between pt-6">
               {step > 1 ? (
                 <button
                   type="button"
                   onClick={prevStep}
-                  className="px-5 py-3 rounded-full bg-zinc-200 text-xs font-semibold text-zinc-800 hover:bg-zinc-300 transition"
+                  className="px-6 py-3.5 rounded-full bg-zinc-200 text-sm font-bold text-zinc-900 hover:bg-zinc-300 transition"
                 >
-                  Previous
+                  ← PREVIOUS
                 </button>
               ) : (
                 <div />
@@ -877,19 +963,19 @@ export default function RegisterPropertyPage() {
                 <button
                   type="button"
                   onClick={nextStep}
-                  className="px-7 py-3.5 rounded-full bg-zinc-950 text-xs font-bold text-white hover:bg-zinc-800 transition"
+                  className="px-8 py-4 rounded-full bg-zinc-950 text-sm font-black uppercase tracking-wider text-white hover:bg-zinc-800 transition shadow-md"
                 >
-                  Continue to Step {step + 1}
+                  CONTINUE TO STEP {step + 1} →
                 </button>
               ) : (
                 <button
                   type="submit"
                   disabled={submitting}
-                  className={`px-8 py-4 rounded-full text-xs font-bold text-white transition shadow-lg ${
-                    submitting ? "bg-zinc-400 cursor-not-allowed" : "bg-zinc-950 hover:bg-zinc-800"
+                  className={`px-8 py-4 rounded-full text-sm sm:text-base font-black uppercase tracking-wider text-white transition shadow-xl ${
+                    submitting ? "bg-zinc-400 cursor-not-allowed" : "bg-emerald-600 hover:bg-emerald-700"
                   }`}
                 >
-                  {submitting ? "Submitting..." : "SUBMIT PROPERTY REGISTRATION — FREE"}
+                  {submitting ? "SUBMITTING..." : "SUBMIT REGISTRATION"}
                 </button>
               )}
             </div>

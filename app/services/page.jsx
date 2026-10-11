@@ -1,114 +1,114 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { 
   Radio, 
   MapPin, 
-  FileCheck2, 
-  Layers, 
-  Building2, 
-  Network, 
-  ShieldCheck, 
-  ArrowRight, 
   CheckCircle, 
-  AlertCircle,
-  Briefcase,
-  Compass,
-  FileSpreadsheet
+  ArrowRight, 
+  Building2, 
+  ShieldCheck, 
+  FileText,
+  Search,
+  Activity,
+  Award
 } from "lucide-react";
 
 const servicesList = [
   {
     number: "01",
-    tag: "STARTING POINT",
-    badge: "FREE",
-    title: "Register Your Property",
-    desc: "Register land or property with the Polegrid National Site Intelligence Network. Property registration is the starting point for property owners who want their property information considered within the Polegrid network.",
+    tag: "FREE CORE SERVICE",
+    title: "PROPERTY REGISTRATION & PRELIMINARY SCREENING",
+    desc: "A free service allowing landowners, families, companies and institutions to register property details within the Polegrid platform. The preliminary screening process identifies whether the property demonstrates general characteristics that may make it relevant to telecommunications or digital infrastructure consideration.",
     features: [
-      "Geospatial location pin capture & verification",
-      "Preliminary suitability screening against network demand",
-      "Zero upfront registration fee required",
+      "No registration fee required",
+      "Nationwide coverage across all 36 States + FCT",
+      "Preserves original land ownership and possession",
+      "Puts property information on the infrastructure radar",
     ],
+    badge: "100% Free • Open to All Landowners",
+    image: "/hero1.JPG",
     ctaText: "REGISTER YOUR PROPERTY — FREE",
     ctaLink: "/register-property",
-    image: "/hero1.JPG",
   },
   {
     number: "02",
-    tag: "GEOSPATIAL INTELLIGENCE",
-    badge: "INTELLIGENCE",
-    title: "Property & Location Intelligence",
-    desc: "Polegrid organizes and maintains relevant property and location information to support infrastructure-related evaluation and planning. This helps make potentially relevant locations easier to identify and understand as infrastructure requirements evolve.",
+    tag: "INVITED / SHORTLISTED SERVICE",
+    title: "ADVANCED TECHNICAL SITE ASSESSMENT (ATA)",
+    desc: "A structured assessment service available for shortlisted properties where preliminary screening indicates potential suitability. Delivers a professional Assessment Report examining elevation, coordinate accuracy, terrain characteristics, access, and surrounding connectivity requirements.",
+    notice: "Fee: ₦15,500 — Payable ONLY after formal invitation following preliminary screening.",
     features: [
-      "Structured GIS attribute cataloging across all 36 states",
-      "Accessibility, road width & clearance screening",
-      "Proximity analysis to existing masts and clusters",
+      "Comprehensive Geospatial Location Analysis",
+      "Structural & Terrain Viability Evaluation",
+      "Network Blindspot & Mast Proximity Check",
+      "Formal Technical Assessment Report deliverable",
     ],
-    ctaText: "LEARN ABOUT THE NETWORK",
-    ctaLink: "/about",
+    badge: "₦15,500 Standard Fee • Shortlisted Only",
     image: "/hero2.jpg",
+    ctaText: "LEARN MORE ABOUT ATA",
+    ctaLink: "/assessment-payment",
   },
   {
     number: "03",
-    tag: "CONTROLLED STAGE",
-    badge: "₦15,500 FEE",
-    title: "Advanced Technical Site Assessment",
-    desc: "Where a property is invited to proceed to a more detailed stage, Polegrid may provide an Advanced Technical Site Assessment covering relevant site, access, physical, location and infrastructure considerations.",
-    notice: "The assessment fee applies only where a property owner has been invited to proceed. The assessment provides a more detailed evaluation of the property and supports further consideration.",
+    tag: "FOR ORGANIZATIONS & OPERATORS",
+    title: "INFRASTRUCTURE SITE ACQUISITION SUPPORT",
+    desc: "Assisting telecommunications companies, TowerCos and infrastructure developers to identify and screen suitable sites. We reduce search time, improve location quality and support field engagement through verified geospatial data.",
     features: [
-      "Heavy equipment and road access feasibility review",
-      "Physical elevation and line-of-sight analysis",
-      "Structured technical assessment dossier for infrastructure stakeholders",
+      "Custom Location & Grid Search",
+      "Preliminary Viability & Access Screening",
+      "Right-of-Way & Infrastructure Proximity Evaluation",
+      "Coordinated Landowner Verification",
     ],
-    ctaText: "READ ASSESSMENT FAQ",
-    ctaLink: "/faq",
-    image: "/hero4.jpg",
+    badge: "For Telecom Operators & TowerCos",
+    image: "/hero3.jpg",
+    ctaText: "ENQUIRE WITH POLEGRID",
+    ctaLink: "/organization-enquiry",
   },
   {
     number: "04",
-    tag: "STAKEHOLDER ENGAGEMENT",
-    badge: "COORDINATION",
-    title: "Infrastructure Opportunity Support",
-    desc: "Where an appropriate infrastructure opportunity arises, Polegrid supports the preparation and coordination of relevant property information for further consideration.",
+    tag: "PORTFOLIO INTELLIGENCE",
+    title: "INSTITUTIONAL & MULTI-SITE PORTFOLIO SCREENING",
+    desc: "Specialized service for property developers, estates, universities, agricultural operators, and corporate landowners holding multiple parcels. Enables centralized geospatial review to identify potential infrastructure nodes across an entire asset portfolio.",
     features: [
-      "Packaging location information for telecommunications requirements",
-      "Demarcation and access route coordination",
-      "Facilitating structured review with infrastructure planners",
+      "Portfolio-Wide Location Review",
+      "Prioritized Node Viability Ranking",
+      "Unified Geospatial Asset Management",
+      "Direct Operator & TowerCo Outreach Coordination",
     ],
-    ctaText: "REGISTER YOUR PROPERTY",
-    ctaLink: "/register-property",
-    image: "/hero5.jpg",
+    badge: "Multi-Site Estates & Corporate Land",
+    image: "/hero4.jpg",
+    ctaText: "DISCUSS PORTFOLIO SCREENING",
+    ctaLink: "/organization-enquiry",
   },
   {
     number: "05",
-    tag: "CORPORATE TRANSACTIONS",
-    badge: "GASL OPERATIONS",
-    title: "Infrastructure Site Acquisition & Transaction Coordination",
-    desc: "Through its corporate operations, Geospatial Asset Systems Limited (GASL) engages with telecommunications and digital infrastructure organizations and supports appropriate site acquisition and transaction coordination requirements.",
-    notice: "Commercial engagements are subject to separately agreed terms.",
+    tag: "COMMERCIAL COORDINATION",
+    title: "TRANSACTION COORDINATION & FACILITATION",
+    desc: "Professional transaction support bridging property owners and infrastructure operators. Facilitating clear documentation, lease structuring, site visits, and commercial execution through Geospatial Asset Systems Limited (GASL).",
     features: [
-      "Corporate engagement with telecom operators and TowerCos",
-      "End-to-end site acquisition lifecycle support",
-      "Legal and regulatory documentation alignment",
+      "Independent Lease Documentation Review",
+      "Transparent Milestone Tracking",
+      "Site Access & Stakeholder Meeting Coordination",
+      "Regulatory & Community Liaison Guidance",
     ],
-    ctaText: "CONNECT WITH POLEGRID",
-    ctaLink: "/organization-enquiry",
-    image: "/hero3.jpg",
+    badge: "Managed by GASL • SCUML Certified",
+    image: "/hero5.jpg",
+    ctaText: "CONTACT COORDINATION DESK",
+    ctaLink: "/contact",
   },
   {
     number: "06",
-    tag: "ENTERPRISE PORTFOLIO",
-    badge: "MULTI-SITE",
-    title: "Corporate, Institutional & Multi-Site Engagement",
-    desc: "Polegrid works with organizations that own, manage or control multiple properties, campuses or potential infrastructure locations including estate developers, corporate organizations, educational institutions, healthcare facilities, religious institutions, and industrial developments.",
-    notice: "Commercial engagements are subject to applicable requirements and separately agreed terms.",
+    tag: "STRATEGIC MAPPING",
+    title: "LOCATION INTELLIGENCE & INFRASTRUCTURE MAPPING",
+    desc: "Advanced geospatial data services supporting digital connectivity planning. Mapping cell coverage blindspots, fiber optic routes, grid power availability, and population expansion corridors nationwide.",
     features: [
-      "Portfolio-wide geospatial mapping and infrastructure suitability audit",
-      "Campus connectivity & small cell node planning",
-      "Institutional transaction coordination",
+      "Geospatial Coverage Gap Analysis",
+      "Optical Fiber & Transmission Proximity Data",
+      "Elevation & Line-of-Sight Terrain Modelling",
+      "National Site Registry Intelligence",
     ],
-    ctaText: "CONNECT WITH POLEGRID",
-    ctaLink: "/organization-enquiry",
+    badge: "National Infrastructure Map",
     image: "/hero6.jpg",
+    ctaText: "EXPLORE LOCATION DATA",
+    ctaLink: "/organization-enquiry",
   },
 ];
 
@@ -116,36 +116,36 @@ export default function ServicesPage() {
   return (
     <div className="bg-white text-zinc-900 selection:bg-zinc-900 selection:text-white">
       
-      {/* Header Banner - Solid dark, borderless, photography overlay */}
-      <section className="relative bg-zinc-950 text-white py-28 overflow-hidden">
+      {/* Header Banner */}
+      <section className="relative bg-zinc-950 text-white py-24 sm:py-28 overflow-hidden">
         <img
           src="/about.jpg"
           alt="Services Overview"
-          className="absolute inset-0 w-full h-full object-cover opacity-20"
+          className="absolute inset-0 w-full h-full object-cover opacity-25"
         />
-        <div className="absolute inset-0 bg-zinc-950/80" />
+        <div className="absolute inset-0 bg-black/60" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-zinc-400 block">
-            What Polegrid Does
+          <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-emerald-400 block [text-shadow:_0_2px_8px_rgba(0,0,0,0.8)]">
+            WHAT POLEGRID DOES
           </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white">
-            Infrastructure Intelligence Services
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white [text-shadow:_0_3px_20px_rgba(0,0,0,1)]">
+            INFRASTRUCTURE INTELLIGENCE SERVICES
           </h1>
-          <p className="text-base sm:text-lg text-zinc-300 leading-relaxed max-w-2xl mx-auto font-light">
+          <p className="text-lg sm:text-2xl text-white leading-relaxed max-w-3xl mx-auto font-semibold [text-shadow:_0_2px_12px_rgba(0,0,0,0.9)]">
             Polegrid provides infrastructure intelligence services designed to support the identification, evaluation and coordination of potential telecommunications and digital infrastructure opportunities.
           </p>
         </div>
       </section>
 
-      {/* Main Services - Alternating Photo Split Layout, No Box Borders, No Gradients */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-28">
+      {/* Main Services - Alternating Photo Split Layout */}
+      <section className="py-24 sm:py-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-28">
         {servicesList.map((srv, idx) => {
           const isEven = idx % 2 === 1;
           return (
             <div
               key={srv.number}
-              className={`grid lg:grid-cols-12 gap-12 lg:gap-16 items-center`}
+              className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center"
             >
               {/* Photo Showcase (6 cols) */}
               <div className={`lg:col-span-6 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
@@ -155,7 +155,7 @@ export default function ServicesPage() {
                     alt={srv.title}
                     className="img-zoom w-full h-full object-cover"
                   />
-                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-zinc-950/80 backdrop-blur-md text-[11px] font-bold text-white tracking-wider">
+                  <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-black/80 backdrop-blur-md text-xs font-black text-white tracking-wider">
                     {srv.badge}
                   </div>
                 </div>
@@ -163,30 +163,30 @@ export default function ServicesPage() {
 
               {/* Editorial Text (6 cols) */}
               <div className={`lg:col-span-6 space-y-6 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
-                <div className="space-y-1">
-                  <span className="text-xs font-mono font-bold text-zinc-400 block">
+                <div className="space-y-2">
+                  <span className="text-xs sm:text-sm font-mono font-black text-emerald-800 uppercase tracking-widest block">
                     {srv.number} • {srv.tag}
                   </span>
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-zinc-950 tracking-tight leading-tight">
+                  <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-zinc-950 tracking-tight leading-tight">
                     {srv.title}
                   </h2>
                 </div>
 
-                <p className="text-zinc-600 text-sm sm:text-base leading-relaxed font-light">
+                <p className="text-base sm:text-lg text-zinc-700 leading-relaxed font-medium">
                   {srv.desc}
                 </p>
 
                 {srv.notice && (
-                  <div className="p-5 rounded-2xl bg-zinc-50 text-xs sm:text-sm text-zinc-700 leading-relaxed font-normal">
+                  <div className="p-5 rounded-2xl bg-emerald-50 text-sm sm:text-base text-emerald-950 font-bold leading-relaxed shadow-sm">
                     {srv.notice}
                   </div>
                 )}
 
-                <div className="space-y-2.5 pt-1">
+                <div className="space-y-3 pt-1">
                   {srv.features.map((ft, i) => (
-                    <div key={i} className="flex items-center gap-3 text-xs sm:text-sm text-zinc-700">
-                      <div className="w-4 h-4 rounded-full bg-zinc-100 text-emerald-700 flex items-center justify-center shrink-0">
-                        <CheckCircle className="w-3.5 h-3.5" />
+                    <div key={i} className="flex items-center gap-3 text-sm sm:text-base text-zinc-800 font-bold">
+                      <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+                        <CheckCircle className="w-4 h-4" />
                       </div>
                       <span>{ft}</span>
                     </div>
@@ -196,10 +196,10 @@ export default function ServicesPage() {
                 <div className="pt-4">
                   <Link
                     to={srv.ctaLink}
-                    className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-xs font-bold text-white bg-zinc-950 hover:bg-zinc-800 rounded-full transition shadow-md"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 text-sm sm:text-base font-black text-white bg-zinc-950 hover:bg-zinc-800 rounded-full transition shadow-xl transform hover:scale-105"
                   >
                     <span>{srv.ctaText}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               </div>
@@ -208,26 +208,26 @@ export default function ServicesPage() {
         })}
       </section>
 
-      {/* Bottom Photo Callout - No Borders, No Gradients */}
-      <section className="relative py-24 bg-zinc-950 text-white overflow-hidden">
+      {/* Bottom Photo Callout */}
+      <section className="relative py-24 sm:py-32 bg-black text-white overflow-hidden">
         <img
           src="/hero5.jpg"
           alt="Telecom Infrastructure"
-          className="absolute inset-0 w-full h-full object-cover opacity-20"
+          className="absolute inset-0 w-full h-full object-cover opacity-25"
         />
-        <div className="absolute inset-0 bg-zinc-950/80" />
+        <div className="absolute inset-0 bg-black/60" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
-          <h3 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-            Ready to Put Your Property on the Radar?
+          <h3 className="text-3xl sm:text-5xl font-black text-white tracking-tight drop-shadow">
+            READY TO PUT YOUR PROPERTY ON THE RADAR?
           </h3>
-          <p className="text-zinc-300 text-sm sm:text-base max-w-xl mx-auto font-light">
+          <p className="text-zinc-100 text-base sm:text-xl max-w-2xl mx-auto font-medium">
             Start with free property registration. No payment is required to submit your land to the Polegrid National Site Intelligence Network.
           </p>
           <div className="pt-2">
             <Link
               to="/register-property"
-              className="inline-flex items-center justify-center gap-2 px-9 py-4 text-sm font-bold text-zinc-950 bg-white hover:bg-zinc-200 rounded-full transition shadow-xl"
+              className="inline-flex items-center justify-center gap-2 px-9 py-4.5 text-sm sm:text-base font-black text-zinc-950 bg-white hover:bg-zinc-200 rounded-full transition shadow-2xl transform hover:scale-105"
             >
               <Radio className="w-4 h-4 text-emerald-600" />
               REGISTER YOUR PROPERTY — FREE

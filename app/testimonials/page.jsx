@@ -142,7 +142,7 @@ export default function TestimonialsPage() {
     <div className="bg-white text-zinc-900 selection:bg-zinc-900 selection:text-white">
       
       {/* Header Banner with full photography overlay, No gradients */}
-      <section className="relative bg-zinc-950 text-white py-28 overflow-hidden">
+      <section className="relative bg-zinc-950 text-white py-24 sm:py-28 overflow-hidden">
         <img
           src="/hero3.jpg"
           alt="Field Engagements"
@@ -151,13 +151,13 @@ export default function TestimonialsPage() {
         <div className="absolute inset-0 bg-zinc-950/80" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-zinc-400 block">
-            Trust & Community
+          <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-emerald-400 block [text-shadow:_0_2px_8px_rgba(0,0,0,0.8)]">
+            TRUST & COMMUNITY
           </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white leading-[1.08] [text-shadow:_0_3px_20px_rgba(0,0,0,1)]">
             What People Say About Polegrid
           </h1>
-          <p className="max-w-xl mx-auto text-base sm:text-lg text-zinc-300 leading-relaxed font-light">
+          <p className="max-w-2xl mx-auto text-lg sm:text-2xl text-white leading-relaxed font-semibold [text-shadow:_0_2px_12px_rgba(0,0,0,0.9)]">
             Trust should come from genuine experience. As our network grows, we share genuine feedback from actual property owners and organizations.
           </p>
         </div>
@@ -165,20 +165,20 @@ export default function TestimonialsPage() {
 
       {/* Filter Tabs - Borderless, clean pills */}
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pb-8 border-b border-zinc-100">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pb-8 border-b border-zinc-200">
           <div>
-            <h2 className="text-xl font-bold text-zinc-950">
+            <h2 className="text-2xl sm:text-3xl font-black text-zinc-950 tracking-tight">
               Verified Engagement Notes
             </h2>
-            <p className="text-xs text-zinc-500 font-light mt-0.5">
+            <p className="text-sm sm:text-base text-zinc-600 font-semibold mt-1">
               Reflecting authentic experiences across Nigeria
             </p>
           </div>
 
-          <div className="flex items-center gap-2 bg-zinc-100 p-1.5 rounded-full">
+          <div className="flex items-center gap-2 bg-zinc-100 p-2 rounded-full">
             <button
               onClick={() => setFilter("all")}
-              className={`px-4 py-2 rounded-full text-xs font-bold transition ${
+              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-black transition ${
                 filter === "all"
                   ? "bg-white text-zinc-950 shadow-sm"
                   : "text-zinc-600 hover:text-zinc-950"
@@ -188,7 +188,7 @@ export default function TestimonialsPage() {
             </button>
             <button
               onClick={() => setFilter("property-owner")}
-              className={`px-4 py-2 rounded-full text-xs font-bold transition ${
+              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-black transition ${
                 filter === "property-owner"
                   ? "bg-white text-zinc-950 shadow-sm"
                   : "text-zinc-600 hover:text-zinc-950"
@@ -198,7 +198,7 @@ export default function TestimonialsPage() {
             </button>
             <button
               onClick={() => setFilter("organization")}
-              className={`px-4 py-2 rounded-full text-xs font-bold transition ${
+              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-black transition ${
                 filter === "organization"
                   ? "bg-white text-zinc-950 shadow-sm"
                   : "text-zinc-600 hover:text-zinc-950"
@@ -214,22 +214,22 @@ export default function TestimonialsPage() {
           {filtered.map((item) => (
             <div
               key={item.id}
-              className="p-8 rounded-3xl bg-zinc-50 flex flex-col justify-between space-y-6 hover:bg-zinc-100/70 transition-colors"
+              className="p-8 sm:p-10 rounded-3xl bg-zinc-50 flex flex-col justify-between space-y-6 hover:bg-zinc-100 transition-colors shadow-sm"
             >
               <div className="space-y-4">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400 block">
+                <span className="text-xs font-black uppercase tracking-wider text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full inline-block">
                   {item.topic}
                 </span>
-                <p className="text-zinc-700 text-sm sm:text-base leading-relaxed font-light italic">
+                <p className="text-zinc-900 text-base sm:text-lg leading-relaxed font-semibold italic">
                   "{item.quote}"
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-zinc-200/60">
-                <h4 className="text-xs font-bold text-zinc-950">
+              <div className="pt-5 border-t border-zinc-200">
+                <h4 className="text-base font-black text-zinc-950">
                   {item.role}
                 </h4>
-                <span className="text-[11px] text-zinc-500 font-light block">
+                <span className="text-sm text-zinc-600 font-bold block mt-0.5">
                   {item.location}
                 </span>
               </div>
@@ -241,9 +241,9 @@ export default function TestimonialsPage() {
         <div className="pt-12 text-center">
           <Link
             to="/register-property"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-bold text-white bg-zinc-950 hover:bg-zinc-800 rounded-full transition shadow-md"
+            className="inline-flex items-center justify-center gap-2.5 px-10 py-5 text-base font-black text-white bg-zinc-950 hover:bg-zinc-800 rounded-full transition shadow-lg"
           >
-            <Radio className="w-4 h-4 text-emerald-400" />
+            <Radio className="w-5 h-5 text-emerald-400" />
             REGISTER YOUR PROPERTY — FREE
           </Link>
         </div>

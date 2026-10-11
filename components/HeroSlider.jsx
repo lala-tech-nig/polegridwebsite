@@ -7,19 +7,16 @@ import {
   ChevronLeft, 
   ChevronRight, 
   ShieldCheck, 
-  MapPin, 
-  Play
+  MapPin
 } from "lucide-react";
 
 const heroSlides = [
   {
     id: 1,
-    tag: "National Site Intelligence Network",
-    title: "Your Land Could Be Part of Nigeria's Next Infrastructure Opportunity.",
+    tag: "NATIONAL SITE INTELLIGENCE NETWORK",
+    title: "YOUR LAND COULD BE PART OF NIGERIA'S NEXT INFRASTRUCTURE OPPORTUNITY.",
     subtitle:
       "Own land anywhere in Nigeria? Register your property with Polegrid and put its information on the radar for potential telecommunications, connectivity and digital infrastructure opportunities.",
-    description:
-      "Polegrid is building a national infrastructure intelligence network that helps bring relevant property and location information into view as infrastructure needs evolve.",
     primaryCta: {
       text: "REGISTER YOUR PROPERTY — FREE",
       href: "/register-property",
@@ -28,21 +25,19 @@ const heroSlides = [
       text: "SEE HOW IT WORKS",
       href: "#how-it-works",
     },
-    badgeText: "No payment is required to register your property.",
+    badgeText: "NO PAYMENT IS REQUIRED TO REGISTER YOUR PROPERTY",
     disclaimer:
       "Registration provides an opportunity for your property to be considered. Further assessment or commercial engagement may apply where appropriate.",
-    bgMedia: "video",
-    sideImage: "/hero1.JPG",
-    locationTag: "Lekki-Epe Corridor, Lagos",
+    mediaType: "video",
+    mediaSrc: "/hero-video.mp4",
+    caption: "National Video Site Intelligence • Nationwide Deployment",
   },
   {
     id: 2,
-    tag: "Geospatial Location Intelligence",
-    title: "Telecommunications and Digital Infrastructure Depend on Suitable Locations.",
+    tag: "TELECOM TOWERS & GREENFIELD SITES",
+    title: "SUITABLE LOCATIONS FOR GROUND-BASED TELECOM MASTS & TOWERS.",
     subtitle:
-      "As Nigeria continues to expand its digital infrastructure, suitable locations remain an important part of the process.",
-    description:
-      "Polegrid helps organize and maintain relevant property and location information that may become useful as infrastructure opportunities arise.",
+      "Open plots, perimeter land, and agricultural borders evaluated for telecom mast expansion across all 36 States and the FCT.",
     primaryCta: {
       text: "REGISTER YOUR PROPERTY — FREE",
       href: "/register-property",
@@ -51,37 +46,96 @@ const heroSlides = [
       text: "EXPLORE SERVICES",
       href: "/services",
     },
-    badgeText: "100% Free Preliminary Geospatial Screening",
+    badgeText: "100% FREE PRELIMINARY GEOSPATIAL SCREENING",
     disclaimer:
       "Location intelligence helps connect physical property assets with long-term infrastructure planning.",
-    bgMedia: "image",
-    bgImage: "/hero2.jpg",
-    sideImage: "/hero2.jpg",
-    locationTag: "Abuja Central & Satellite Corridors",
+    mediaType: "image",
+    mediaSrc: "/hero1.JPG",
+    caption: "Greenfield Telecom Mast Site • Lekki-Epe Axis",
   },
   {
     id: 3,
-    tag: "Strategic Timing & Opportunity",
-    title: "What If Your Property Is in the Right Place at the Right Time?",
+    tag: "ROOFTOPS & HIGH-ELEVATION STRUCTURES",
+    title: "COMMERCIAL ROOFTOPS POWERING URBAN 4G & 5G CONNECTIVITY.",
     subtitle:
-      "You may not know today. That is why Polegrid exists.",
-    description:
-      "Place your property information within a growing national infrastructure intelligence network. Your location data helps guide telecom site selection as networks expand.",
+      "Commercial buildings and high-elevation structures provide vital transmission height for urban micro-cells, small-cells and telecom relays.",
+    primaryCta: {
+      text: "REGISTER YOUR ROOFTOP — FREE",
+      href: "/register-property",
+    },
+    secondaryCta: {
+      text: "FOR ORGANIZATIONS",
+      href: "/organization-enquiry",
+    },
+    badgeText: "COMMERCIAL & RESIDENTIAL ELEVATED ROOFTOPS ELIGIBLE",
+    disclaimer:
+      "Structural suitability and load-bearing capacity are screened during technical assessment.",
+    mediaType: "image",
+    mediaSrc: "/hero2.jpg",
+    caption: "Commercial Rooftop Antenna Installation • Lagos Metro",
+  },
+  {
+    id: 4,
+    tag: "POWER & EQUIPMENT INFRASTRUCTURE",
+    title: "POWER INTEGRATION, ACCESS ROADS & SECURE SITE PERIMETERS.",
+    subtitle:
+      "Verified road access, power proximity, and secure perimeters are essential requirements for long-term telecom infrastructure development.",
     primaryCta: {
       text: "PUT MY PROPERTY ON THE RADAR",
+      href: "/register-property",
+    },
+    secondaryCta: {
+      text: "SEE HOW IT WORKS",
+      href: "#how-it-works",
+    },
+    badgeText: "HEAVY TRUCK ACCESS & UTILITIES SCREENING",
+    disclaimer:
+      "Grid availability and generator/solar footprint evaluated for uninterrupted connectivity.",
+    mediaType: "image",
+    mediaSrc: "/hero3.jpg",
+    caption: "Power & Equipment Shelter Facility • Abuja Central Hub",
+  },
+  {
+    id: 5,
+    tag: "STRATEGIC TIMING & EXPANSION",
+    title: "WHAT IF YOUR PROPERTY IS IN THE RIGHT PLACE AT THE RIGHT TIME?",
+    subtitle:
+      "You may not know today. That is why Polegrid organizes and maintains property intelligence to match telecom operators as networks grow.",
+    primaryCta: {
+      text: "REGISTER YOUR PROPERTY — FREE",
       href: "/register-property",
     },
     secondaryCta: {
       text: "CONNECT WITH POLEGRID",
       href: "/organization-enquiry",
     },
-    badgeText: "Put Your Land on the Radar",
+    badgeText: "NATIONWIDE INFRASTRUCTURE RADAR",
     disclaimer:
       "Commercial engagements and lease structures are established only when a verified infrastructure need is matched.",
-    bgMedia: "image",
-    bgImage: "/hero3.jpg",
-    sideImage: "/hero4.jpg",
-    locationTag: "Kano & Port Harcourt Growth Hubs",
+    mediaType: "image",
+    mediaSrc: "/hero5.jpg",
+    caption: "High-Capacity Lattice Macro Tower • Growth Corridor",
+  },
+  {
+    id: 6,
+    tag: "COMMUNITY CONNECTIVITY & VALUE",
+    title: "CONNECTING NIGERIAN LANDOWNERS WITH LONG-TERM INFRASTRUCTURE VALUE.",
+    subtitle:
+      "Telecom operators and tower companies seek suitable locations for 10–30 year lease opportunities. Property registration is 100% free.",
+    primaryCta: {
+      text: "REGISTER YOUR PROPERTY — FREE",
+      href: "/register-property",
+    },
+    secondaryCta: {
+      text: "EXPLORE SERVICES",
+      href: "/services",
+    },
+    badgeText: "10–30 YEAR LONG-TERM LEASE POTENTIAL",
+    disclaimer:
+      "Registration provides an opportunity for consideration with zero upfront payment required.",
+    mediaType: "image",
+    mediaSrc: "/hero6.jpg",
+    caption: "Suburban Connectivity Mast • Kano-Kaduna Growth Hub",
   },
 ];
 
@@ -89,11 +143,12 @@ export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
+  // Auto-sliding Carousel every 5 seconds
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % heroSlides.length);
-    }, 8500);
+    }, 5000);
     return () => clearInterval(interval);
   }, [isPaused]);
 
@@ -101,181 +156,164 @@ export default function HeroSlider() {
 
   return (
     <div 
-      className="relative min-h-[680px] md:min-h-[760px] lg:min-h-[820px] flex items-center bg-zinc-950 overflow-hidden"
+      className="relative min-h-[460px] md:min-h-[500px] lg:min-h-[540px] flex items-center bg-black overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Background Media: Cinematic Video or Full Photography without gradients */}
+      {/* Background Media: Video or high-res photography */}
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className={`w-full h-full object-cover transition-opacity duration-1000 ${
-            slide.bgMedia === "video" ? "opacity-35" : "opacity-15"
-          }`}
-        >
-          <source src="/hero-video.mp4" type="video/mp4" />
-        </video>
-        
-        {/* Clean solid dark overlay for high readability without gradients */}
-        <div className="absolute inset-0 bg-zinc-950/75" />
+        <AnimatePresence mode="wait">
+          {slide.mediaType === "video" ? (
+            <motion.div
+              key="video-bg"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.6 }}
+              className="w-full h-full"
+            >
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+              >
+                <source src={slide.mediaSrc} type="video/mp4" />
+              </video>
+            </motion.div>
+          ) : (
+            <motion.div
+              key={`img-${slide.id}`}
+              initial={{ opacity: 0, scale: 1.03 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.6 }}
+              className="w-full h-full"
+            >
+              <img
+                src={slide.mediaSrc}
+                alt={slide.caption}
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Dark overlay (bg-black/45) so the background video & images play clearly while white text is 100% crisp and readable */}
+        <div className="absolute inset-0 bg-black/45" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10 w-full">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
-          {/* Main Slide Text Content (7 cols) */}
-          <div className="lg:col-span-7 space-y-7 text-left">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={slide.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="space-y-6"
+      {/* Main Content: Centered, Bold, White & Readable */}
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14 relative z-10 w-full text-center flex flex-col items-center">
+        
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={slide.id}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="space-y-4 sm:space-y-5 flex flex-col items-center"
+          >
+            {/* Tag Pill - Pure White Lettering with Crisp Contrast */}
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs sm:text-sm font-black uppercase tracking-wider bg-black/80 text-white border border-white/25 backdrop-blur-md shadow-xl">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="text-white drop-shadow">{slide.tag}</span>
+            </div>
+
+            {/* Headline - Pure White, Maximum Boldness & High-Contrast Shadow */}
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08] max-w-4xl [text-shadow:_0_3px_20px_rgba(0,0,0,1),_0_6px_40px_rgba(0,0,0,0.95)]">
+              {slide.title}
+            </h1>
+
+            {/* Subtitle - Pure White, High-Contrast Text */}
+            <p className="text-lg sm:text-xl md:text-2xl text-white font-bold leading-relaxed max-w-3xl [text-shadow:_0_2px_14px_rgba(0,0,0,1),_0_4px_24px_rgba(0,0,0,0.9)]">
+              {slide.subtitle}
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2 w-full sm:w-auto">
+              <Link
+                to={slide.primaryCta.href}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-9 py-4 text-sm sm:text-base font-black text-zinc-950 bg-white hover:bg-zinc-200 active:bg-zinc-300 rounded-full transition-all duration-300 transform hover:scale-105 shadow-2xl"
               >
-                {/* Minimal Tag */}
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-zinc-900 text-zinc-300">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                  <span>{slide.tag}</span>
-                </div>
+                <Radio className="w-4 h-4 text-emerald-600" />
+                <span>{slide.primaryCta.text}</span>
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </Link>
 
-                {/* Main Headline - Bold, clean, large */}
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-black text-white tracking-tight leading-[1.12]">
-                  {slide.title}
-                </h1>
+              {slide.secondaryCta.href.startsWith("#") ? (
+                <a
+                  href={slide.secondaryCta.href}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-sm sm:text-base font-bold text-white bg-black/75 hover:bg-black/95 rounded-full border border-white/30 backdrop-blur-md transition hover:scale-105 shadow-xl"
+                >
+                  <span className="text-white drop-shadow">{slide.secondaryCta.text}</span>
+                </a>
+              ) : (
+                <Link
+                  to={slide.secondaryCta.href}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-sm sm:text-base font-bold text-white bg-black/75 hover:bg-black/95 rounded-full border border-white/30 backdrop-blur-md transition hover:scale-105 shadow-xl"
+                >
+                  <span className="text-white drop-shadow">{slide.secondaryCta.text}</span>
+                </Link>
+              )}
+            </div>
 
-                {/* Subtitle */}
-                <p className="text-base sm:text-lg md:text-xl text-zinc-300 font-normal leading-relaxed">
-                  {slide.subtitle}
-                </p>
+            {/* Corresponding Image / Video Caption Pill - Pure White Lettering */}
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-black/80 border border-white/20 backdrop-blur-md text-xs sm:text-sm font-bold text-white mt-1 shadow-xl">
+              <MapPin className="w-4 h-4 text-emerald-400 shrink-0" />
+              <span className="text-white drop-shadow">{slide.caption}</span>
+            </div>
 
-                {/* Description */}
-                <p className="text-sm sm:text-base text-zinc-400 leading-relaxed max-w-2xl font-light">
-                  {slide.description}
-                </p>
-
-                {/* Solid CTA Buttons - No gradients, no borders */}
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-3">
-                  <Link
-                    to={slide.primaryCta.href}
-                    className="inline-flex items-center justify-center gap-2.5 px-8 py-4 text-sm font-bold text-zinc-950 bg-white hover:bg-zinc-200 active:bg-zinc-300 rounded-full transition-all duration-300 transform hover:-translate-y-0.5"
-                  >
-                    <Radio className="w-4 h-4 text-emerald-600" />
-                    <span>{slide.primaryCta.text}</span>
-                    <ArrowRight className="w-4 h-4 ml-1" />
-                  </Link>
-
-                  {slide.secondaryCta.href.startsWith("#") ? (
-                    <a
-                      href={slide.secondaryCta.href}
-                      className="inline-flex items-center justify-center gap-2 px-7 py-4 text-sm font-semibold text-white bg-zinc-900 hover:bg-zinc-800 rounded-full transition"
-                    >
-                      <span>{slide.secondaryCta.text}</span>
-                    </a>
-                  ) : (
-                    <Link
-                      to={slide.secondaryCta.href}
-                      className="inline-flex items-center justify-center gap-2 px-7 py-4 text-sm font-semibold text-white bg-zinc-900 hover:bg-zinc-800 rounded-full transition"
-                    >
-                      <span>{slide.secondaryCta.text}</span>
-                    </Link>
-                  )}
-                </div>
-
-                {/* No Payment Required Badge + Disclaimer */}
-                <div className="pt-3 space-y-1.5">
-                  <div className="flex items-center gap-2 text-xs font-medium text-emerald-400">
-                    <ShieldCheck className="w-4 h-4 shrink-0" />
-                    <span>{slide.badgeText}</span>
-                  </div>
-                  <p className="text-xs text-zinc-500 leading-normal font-light">
-                    {slide.disclaimer}
-                  </p>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* High-Impact Photographic Showcase Card (5 cols) - Focused on real photography */}
-          <div className="lg:col-span-5 hidden lg:block">
-            <div className="relative group">
-              <div className="img-zoom-wrapper rounded-3xl overflow-hidden shadow-2xl bg-zinc-900 aspect-[4/3] relative">
-                <img
-                  src={slide.sideImage}
-                  alt="Infrastructure Location Site"
-                  className="img-zoom w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-zinc-950/25 group-hover:bg-transparent transition-colors duration-500" />
-                
-                {/* Clean Photo Caption */}
-                <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-zinc-950/85 backdrop-blur-md text-white space-y-1">
-                  <div className="flex items-center justify-between text-[11px] text-zinc-400">
-                    <span className="flex items-center gap-1 font-semibold text-zinc-300">
-                      <MapPin className="w-3.5 h-3.5 text-emerald-400" />
-                      {slide.locationTag}
-                    </span>
-                    <span className="text-[10px] uppercase tracking-wider text-emerald-400 font-bold">
-                      Verified Site
-                    </span>
-                  </div>
-                  <p className="text-xs font-normal text-zinc-300">
-                    Suitable terrain, road access, and structural readiness for telecom deployment.
-                  </p>
-                </div>
-              </div>
-
-              {/* Minimal Stats Pill */}
-              <div className="mt-4 flex items-center justify-between text-xs text-zinc-400 px-2 font-light">
-                <span>Free Registration Across All 36 States + FCT</span>
-                <span className="text-white font-medium">SCUML Certified</span>
+            {/* Badge - Pure White Lettering */}
+            <div className="pt-1">
+              <div className="flex items-center justify-center gap-2 text-xs sm:text-sm font-black text-white [text-shadow:_0_2px_10px_rgba(0,0,0,1)] bg-black/60 px-4 py-1.5 rounded-full border border-white/15 backdrop-blur-sm">
+                <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span className="text-white">{slide.badgeText}</span>
               </div>
             </div>
-          </div>
+          </motion.div>
+        </AnimatePresence>
 
-        </div>
+        {/* Carousel Slide Indicators & Controls */}
+        <div className="flex items-center justify-between w-full max-w-md pt-6 mt-4">
+          <button
+            onClick={() =>
+              setCurrent((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)
+            }
+            className="p-3 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 backdrop-blur-md transition hover:scale-110 shadow-lg"
+            aria-label="Previous Slide"
+          >
+            <ChevronLeft className="w-5 h-5 text-white" />
+          </button>
 
-        {/* Minimal Slide Controls - Clean lines and buttons */}
-        <div className="flex items-center justify-between pt-12 mt-12 border-t border-zinc-900">
-          <div className="flex items-center gap-3">
+          {/* Indicator Pills */}
+          <div className="flex items-center gap-2">
             {heroSlides.map((s, index) => (
               <button
                 key={s.id}
                 onClick={() => setCurrent(index)}
-                className={`transition-all duration-300 rounded-full h-1.5 ${
+                className={`transition-all duration-300 rounded-full h-2.5 ${
                   current === index
-                    ? "w-8 bg-white"
-                    : "w-2 bg-zinc-700 hover:bg-zinc-500"
+                    ? "w-8 bg-emerald-400 shadow-md shadow-emerald-400/50"
+                    : "w-2.5 bg-white/50 hover:bg-white"
                 }`}
                 aria-label={`Slide ${index + 1}`}
               />
             ))}
-            <span className="text-xs text-zinc-500 font-mono ml-2">
+            <span className="text-xs text-white font-black ml-2 [text-shadow:_0_1px_6px_rgba(0,0,0,0.9)]">
               0{current + 1} / 0{heroSlides.length}
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() =>
-                setCurrent((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)
-              }
-              className="p-3 rounded-full bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white transition"
-              aria-label="Previous Slide"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <button
-              onClick={() => setCurrent((prev) => (prev + 1) % heroSlides.length)}
-              className="p-3 rounded-full bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white transition"
-              aria-label="Next Slide"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
+          <button
+            onClick={() => setCurrent((prev) => (prev + 1) % heroSlides.length)}
+            className="p-3 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 backdrop-blur-md transition hover:scale-110 shadow-lg"
+            aria-label="Next Slide"
+          >
+            <ChevronRight className="w-5 h-5 text-white" />
+          </button>
         </div>
 
       </div>
