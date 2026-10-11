@@ -498,7 +498,7 @@ export default function Home() {
           </h2>
 
           <p className="text-white text-lg sm:text-2xl leading-relaxed max-w-3xl mx-auto font-semibold [text-shadow:_0_2px_12px_rgba(0,0,0,0.9)]">
-            Geospatial Asset Systems Limited (GASL), through the Polegrid platform, welcomes enquiries from telecom operators, TowerCos, estate developers, and institutions interested in infrastructure locations, site acquisition, and multi-site coordination.
+            Are you representing a telecommunications company, TowerCo, estate developer, institution or other organization interested in infrastructure locations, site acquisition support or professional collaboration? Geospatial Asset Systems Limited (GASL), through the Polegrid infrastructure intelligence platform, welcomes enquiries from organizations interested in exploring potential areas of engagement.
           </p>
 
           <div className="pt-4">
