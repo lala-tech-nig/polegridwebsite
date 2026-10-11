@@ -2,55 +2,74 @@ import { Link } from "react-router-dom";
 import { 
   ArrowRight, 
   CheckCircle,
-  ShieldCheck,
-  Building2,
-  MapPin,
   Radio
 } from "lucide-react";
 
 const servicesList = [
   {
     number: "01",
-    tag: "PROPERTY REGISTRATION",
+    tag: "01. PROPERTY REGISTRATION",
     title: "Register Your Property",
-    desc: "Register land or property with the Polegrid National Site Intelligence Network.",
-    pricing: "FREE",
-    priceNote: "Property registration is the starting point for property owners who want their property information considered within the Polegrid network.",
+    desc: "Free Register property with the Polegrid National Site Intelligence Network.",
+    // pricing: "FREE",
+    bullets: [
+      "Free property registration nationwide",
+      "Digital property information submission",
+      "Individual and organizational registration",
+      "Potential infrastructure opportunity consideration",
+    ],
     image: "/hero1.JPG",
     badge: "FREE REGISTRATION",
-    ctaText: "REGISTER YOUR PROPERTY",
+    ctaText: "REGISTER YOUR PROPERTY — FREE",
     ctaLink: "/register-property",
   },
   {
     number: "02",
-    tag: "PROPERTY & LOCATION INTELLIGENCE",
+    tag: "02. PROPERTY & LOCATION INTELLIGENCE",
     title: "Property & Location Intelligence",
-    desc: "Polegrid organizes and maintains relevant property and location information to support infrastructure-related evaluation and planning.",
-    secondaryDesc: "This helps make potentially relevant locations easier to identify and understand as infrastructure requirements evolve.",
+    desc: "Polegrid organizes property and location information for infrastructure planning.",
+    bullets: [
+      "Organized property information records",
+      "Structured property and location data",
+      "Geographic context for properties",
+      "Infrastructure planning support information",
+    ],
     image: "/hero2.jpg",
     badge: "LOCATION INTELLIGENCE",
-    ctaText: "REGISTER YOUR PROPERTY",
+    ctaText: "REGISTER YOUR PROPERTY — FREE",
     ctaLink: "/register-property",
   },
   {
     number: "03",
-    tag: "ADVANCED TECHNICAL SITE ASSESSMENT",
+    tag: "03. ADVANCED TECHNICAL SITE ASSESSMENT",
     title: "Advanced Technical Site Assessment",
-    desc: "Where a property is invited to proceed to a more detailed stage, Polegrid may provide an Advanced Technical Site Assessment covering relevant site, access, physical, location and infrastructure considerations.",
-    pricing: "₦15,500",
-    priceTitle: "Advanced Technical Site Assessment Fee",
-    priceNote: "The assessment fee applies only where a property owner has been invited to proceed.",
-    secondaryNote: "The assessment provides a more detailed evaluation of the property and supports further consideration.",
+    desc: "Invited properties may proceed to detailed assessment.",
+    // pricing: "₦15,500",
+    priceTitle: "₦15,500 Advanced Technical Site Assessment Fee",
+    priceNote: "Payable only after an invitation.",
+    bullets: [
+      "Property and location information review",
+      "Geographic coordinate accuracy checks",
+      "Site access and terrain review",
+      "Agreed technical assessment report",
+    ],
+    disclaimer: "Assessment does not guarantee selection, leasing, deployment or income.",
     image: "/hero3.jpg",
     badge: "INVITATION ONLY • ₦15,500",
-    ctaText: "ASSESSMENT INFORMATION",
+    ctaText: "LEARN MORE ABOUT ATA",
     ctaLink: "/assessment-payment",
   },
   {
     number: "04",
-    tag: "INFRASTRUCTURE OPPORTUNITY SUPPORT",
+    tag: "04. INFRASTRUCTURE OPPORTUNITY SUPPORT",
     title: "Infrastructure Opportunity Support",
-    desc: "Where an appropriate infrastructure opportunity arises, Polegrid supports the preparation and coordination of relevant property information for further consideration.",
+    desc: "Polegrid supports relevant property information for potential infrastructure opportunities.",
+    bullets: [
+      "Prepare property information for consideration",
+      "Organize relevant opportunity information",
+      "Support appropriate stakeholder communication",
+      "Coordinate information and next steps",
+    ],
     image: "/hero4.jpg",
     badge: "OPPORTUNITY SUPPORT",
     ctaText: "CONNECT WITH POLEGRID",
@@ -58,11 +77,16 @@ const servicesList = [
   },
   {
     number: "05",
-    tag: "SITE ACQUISITION & TRANSACTION COORDINATION",
+    tag: "05. SITE ACQUISITION & TRANSACTION COORDINATION",
     title: "Infrastructure Site Acquisition & Transaction Coordination",
-    desc: "Through its corporate operations, Geospatial Asset Systems Limited (GASL) engages with telecommunications and digital infrastructure organizations and supports appropriate site acquisition and transaction coordination requirements.",
-    secondaryDesc: "This may include supporting the identification and coordination of suitable property opportunities for infrastructure requirements.",
-    disclaimer: "Commercial engagements are subject to separately agreed terms.",
+    desc: "GASL supports site acquisition and transaction coordination for infrastructure organizations.",
+    bullets: [
+      "Coordinate infrastructure site requirements",
+      "Identify potentially suitable properties",
+      "Coordinate property owner communications",
+      "Coordinate transaction documentation support",
+    ],
+    disclaimer: "Commercial engagements require separately agreed terms.",
     image: "/hero5.jpg",
     badge: "MANAGED BY GASL",
     ctaText: "CONNECT WITH POLEGRID",
@@ -70,17 +94,17 @@ const servicesList = [
   },
   {
     number: "06",
-    tag: "CORPORATE, INSTITUTIONAL & MULTI-SITE ENGAGEMENT",
+    tag: "06. CORPORATE, INSTITUTIONAL & MULTI-SITE ENGAGEMENT",
     title: "Have Multiple Properties or Potential Infrastructure Locations?",
-    desc: "Polegrid works with organizations that own, manage or control multiple properties, campuses or potential infrastructure locations.",
-    bodyBullets: [
-      "Property companies, estate developers, and corporate organizations",
-      "Educational institutions and healthcare organizations",
-      "Religious and community institutions",
-      "Industrial developments, public institutions, and other organizations with suitable property interests",
+    desc: "Polegrid works with organizations controlling multiple properties, campuses or potential infrastructure locations.",
+    subDesc: "This includes estates, companies, churches, mosques, universities, hospitals and public institutions.",
+    bullets: [
+      "Review multiple property locations",
+      "Organize institutional portfolio information",
+      "Scope multi-site assessment services",
+      "Coordinate potential multi-location opportunities",
     ],
-    secondaryDesc: "Where appropriate, We can support infrastructure intelligence, site assessment and site acquisition coordination for multi-site and institutional engagements.",
-    disclaimer: "Commercial engagements are subject to applicable requirements and separately agreed terms.",
+    disclaimer: "Commercial engagements depend on scope and requirements.",
     image: "/hero6.jpg",
     badge: "MULTI-SITE & INSTITUTIONAL",
     ctaText: "CONNECT WITH POLEGRID",
@@ -118,7 +142,7 @@ export default function ServicesPage() {
             className="text-lg sm:text-2xl text-white !text-white leading-relaxed max-w-3xl mx-auto font-semibold [text-shadow:_0_2px_12px_rgba(0,0,0,0.9)]"
             style={{ color: '#ffffff' }}
           >
-            Polegrid provides infrastructure intelligence services designed to support the identification, evaluation and coordination of potential telecommunications and digital infrastructure opportunities.
+            Polegrid provides infrastructure intelligence for potential telecommunications and digital infrastructure opportunities.
           </p>
         </div>
       </section>
@@ -152,7 +176,7 @@ export default function ServicesPage() {
                 {/* Category Header */}
                 <div className="space-y-2">
                   <span className="text-xs sm:text-sm font-black text-emerald-800 uppercase tracking-widest block">
-                    {srv.number} • {srv.tag}
+                    {srv.tag}
                   </span>
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-zinc-950 tracking-tight leading-tight">
                     {srv.title}
@@ -164,33 +188,16 @@ export default function ServicesPage() {
                   {srv.desc}
                 </p>
 
-                {/* Secondary Description */}
-                {srv.secondaryDesc && (
+                {/* Sub Description if present */}
+                {srv.subDesc && (
                   <p className="text-base sm:text-lg text-zinc-700 leading-relaxed font-medium">
-                    {srv.secondaryDesc}
+                    {srv.subDesc}
                   </p>
-                )}
-
-                {/* Bullet Points if applicable */}
-                {srv.bodyBullets && (
-                  <div className="space-y-3 pt-2">
-                    <p className="text-sm font-black uppercase tracking-wider text-zinc-500">
-                      Organizations Include:
-                    </p>
-                    {srv.bodyBullets.map((bullet, i) => (
-                      <div key={i} className="flex items-start gap-3 text-base text-zinc-800 font-bold">
-                        <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5">
-                          <CheckCircle className="w-4 h-4" />
-                        </div>
-                        <span>{bullet}</span>
-                      </div>
-                    ))}
-                  </div>
                 )}
 
                 {/* Pricing / Fee Highlight Box */}
                 {srv.pricing && (
-                  <div className="p-6 rounded-2xl bg-zinc-50 space-y-2">
+                  <div className="p-6 rounded-2xl bg-zinc-50 space-y-1">
                     <div className="flex items-baseline gap-3">
                       <span className="text-3xl sm:text-4xl font-black text-emerald-700 tracking-tight">
                         {srv.pricing}
@@ -202,35 +209,46 @@ export default function ServicesPage() {
                       )}
                     </div>
                     {srv.priceNote && (
-                      <p className="text-sm sm:text-base text-zinc-700 font-semibold leading-relaxed">
+                      <p className="text-sm sm:text-base text-zinc-700 font-semibold leading-relaxed pt-1">
                         {srv.priceNote}
-                      </p>
-                    )}
-                    {srv.secondaryNote && (
-                      <p className="text-sm sm:text-base text-zinc-600 font-medium leading-relaxed pt-1">
-                        {srv.secondaryNote}
                       </p>
                     )}
                   </div>
                 )}
 
+                {/* Bullet Points */}
+                {srv.bullets && (
+                  <div className="space-y-3 pt-2">
+                    {srv.bullets.map((bullet, i) => (
+                      <div key={i} className="flex items-start gap-3 text-base sm:text-lg text-zinc-800 font-bold">
+                        <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5">
+                          <CheckCircle className="w-4 h-4" />
+                        </div>
+                        <span>{bullet}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
                 {/* Disclaimer */}
                 {srv.disclaimer && (
-                  <p className="text-sm text-zinc-500 italic font-medium">
+                  <p className="text-sm text-zinc-500 italic font-medium pt-1">
                     *{srv.disclaimer}*
                   </p>
                 )}
 
                 {/* Call to action */}
-                <div className="pt-4">
-                  <Link
-                    to={srv.ctaLink}
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 text-sm sm:text-base font-black text-white bg-zinc-950 hover:bg-zinc-800 rounded-full transition shadow-xl transform hover:scale-105 uppercase tracking-wide"
-                  >
-                    <span>{srv.ctaText}</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
+                {srv.ctaText && (
+                  <div className="pt-4">
+                    <Link
+                      to={srv.ctaLink}
+                      className="inline-flex items-center justify-center gap-2 px-8 py-4 text-sm sm:text-base font-black text-white bg-zinc-950 hover:bg-zinc-800 rounded-full transition shadow-xl transform hover:scale-105 uppercase tracking-wide"
+                    >
+                      <span>{srv.ctaText}</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                )}
 
               </div>
             </div>
@@ -238,7 +256,7 @@ export default function ServicesPage() {
         })}
       </section>
 
-      {/* Bottom Photo Callout */}
+      {/* Bottom Callout Section: READY TO GET STARTED? */}
       <section className="relative py-24 sm:py-32 bg-black text-white overflow-hidden">
         <img
           src="/hero5.jpg"
@@ -248,34 +266,45 @@ export default function ServicesPage() {
         <div className="absolute inset-0 bg-black/60" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
-          <h3 
-            className="text-3xl sm:text-5xl font-black text-white !text-white tracking-tight uppercase [text-shadow:_0_3px_20px_rgba(0,0,0,1)]"
+          <span 
+            className="text-xs sm:text-sm font-black uppercase tracking-widest text-emerald-400 block [text-shadow:_0_2px_8px_rgba(0,0,0,0.8)]"
+            style={{ color: '#34d399' }}
+          >
+            READY TO GET STARTED?
+          </span>
+          <h2 
+            className="text-3xl sm:text-5xl lg:text-6xl font-black text-white !text-white tracking-tight uppercase [text-shadow:_0_3px_20px_rgba(0,0,0,1)]"
             style={{ color: '#ffffff' }}
           >
-            CONNECT WITH POLEGRID
-          </h3>
+            Your Property. Your Information. Your Potential Opportunity.
+          </h2>
           <p 
             className="text-zinc-100 !text-white text-base sm:text-xl max-w-2xl mx-auto font-medium [text-shadow:_0_2px_12px_rgba(0,0,0,0.9)]"
             style={{ color: '#ffffff' }}
           >
-            Commercial engagements are subject to applicable requirements and separately agreed terms.
+            Put your property information on the radar.
           </p>
+
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/register-property"
-              className="inline-flex items-center justify-center gap-2 px-9 py-4.5 text-sm sm:text-base font-black text-zinc-950 bg-white hover:bg-zinc-200 rounded-full transition shadow-2xl transform hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 px-9 py-4.5 text-sm sm:text-base font-black text-zinc-950 bg-white hover:bg-zinc-200 rounded-full transition shadow-2xl transform hover:scale-105 uppercase"
             >
               <Radio className="w-4 h-4 text-emerald-600" />
               REGISTER YOUR PROPERTY — FREE
             </Link>
             <Link
               to="/organization-enquiry"
-              className="inline-flex items-center justify-center gap-2 px-9 py-4.5 text-sm sm:text-base font-black text-white bg-emerald-600 hover:bg-emerald-500 rounded-full transition shadow-2xl transform hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 px-9 py-4.5 text-sm sm:text-base font-black text-white bg-emerald-600 hover:bg-emerald-500 rounded-full transition shadow-2xl transform hover:scale-105 uppercase"
             >
               CONNECT WITH POLEGRID
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
+
+          <p className="text-xs sm:text-sm text-zinc-400 max-w-2xl mx-auto italic pt-4">
+            *Property registration is free. Paid assessments apply only to invited properties. Registration or assessment does not guarantee deployment, lease approval, commercial engagement or income.*
+          </p>
         </div>
       </section>
 
